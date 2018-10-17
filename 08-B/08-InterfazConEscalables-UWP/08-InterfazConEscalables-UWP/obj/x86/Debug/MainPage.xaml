@@ -1,0 +1,312 @@
+﻿<Page
+    x:Class="_08_InterfazConEscalables_UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_08_InterfazConEscalables_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <Border x:ConnectionId='2'
+            Name="brdCaja1"
+            BorderThickness="2"
+            BorderBrush="Black"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            Padding="5"
+            Margin="10,10,10,5"
+            >
+
+            <!-- resize text: https://stackoverflow.com/questions/2282662/wpf-textblock-font-resize-to-fill-available-space-in-a-grid-->
+            <TextBlock x:ConnectionId='23' 
+                Name="cajaTitulo"
+                Text="Textos indescifrables"
+                TextWrapping="Wrap"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                ScrollViewer.IsVerticalRailEnabled="True"
+            />
+            
+            <!--añadir scrollbar -->
+
+        </Border>
+
+        <Border x:ConnectionId='3'
+            Name="brdCaja2"
+            BorderThickness="2"
+            BorderBrush="Black"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.Below="brdCaja1"
+            Padding="5"
+            Margin="10,5,10,5"
+            >
+            <TextBlock x:ConnectionId='22'
+                Name="CajaSubtitulo"
+                Text="Is satse odnatnetni reel otse, se euq et serruba"
+                TextWrapping="Wrap"
+                />
+
+        </Border>
+
+        <Border x:ConnectionId='4'
+            Name="brdCaja3"
+            BorderThickness="2"
+            BorderBrush="Black"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.Below="brdCaja2"
+            RelativePanel.Above="brdCaja4"
+            Padding="5"
+            Margin="10,5,10,5"
+            >
+            <!--<TextBlock
+                Name="CajaPrincipal"
+                Text="Caja 3"
+                TextWrapping="Wrap"
+                />-->
+
+            <Grid x:ConnectionId='7'
+                Name="grdContenido"
+                >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="6*"/>
+                </Grid.ColumnDefinitions>
+                
+                <!--<RelativePanel
+                HorizontalAlignment="Left"
+                    Grid.Row="0"
+                >-->
+                <ScrollViewer x:ConnectionId='8'
+                    Name="sclFotos"
+                    Grid.Column="0"
+                    VerticalScrollBarVisibility="Auto"
+                    VerticalContentAlignment="Top"
+                    RelativePanel.AlignLeftWithPanel="True"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignBottomWithPanel="True"
+                        RelativePanel.AlignTopWithPanel="True"
+                    >
+
+                    <VariableSizedWrapGrid x:ConnectionId='13'
+                        Name="vswFotos"
+                        
+                        Margin="5"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        Grid.Column="0"
+                        >
+                        <Image x:ConnectionId='14'
+                            Name="imgImagen1"
+                            HorizontalAlignment="Left" 
+                            Height="100" Width="100" 
+                            Margin="0,0,5,5"
+                            VariableSizedWrapGrid.ColumnSpan="0"
+                            VariableSizedWrapGrid.RowSpan="0"
+                            Source="../Images/hw1.png"
+                            />
+
+                        <Image x:ConnectionId='15'
+                            Name="imgImagen2"
+                            HorizontalAlignment="Left" 
+                            Height="100" Width="100" 
+                            Margin="0,0,5,5"
+                            VariableSizedWrapGrid.ColumnSpan="0"
+                            VariableSizedWrapGrid.RowSpan="0"
+                            Source="../Images/hw2.png"
+                            />
+
+                        <Image x:ConnectionId='16'
+                            Name="imgImagen3"
+                            HorizontalAlignment="Left" 
+                            Height="100" Width="100" 
+                            Margin="0,0,5,5"
+                            VariableSizedWrapGrid.ColumnSpan="0"
+                            VariableSizedWrapGrid.RowSpan="0"
+                            Source="../Images/hw3.png"
+                            />
+
+                        <Image x:ConnectionId='17'
+                            Name="imgImagen4"
+                            HorizontalAlignment="Left" 
+                            Height="100" Width="100" 
+                            Margin="0,0,5,5"
+                            VariableSizedWrapGrid.ColumnSpan="0"
+                            VariableSizedWrapGrid.RowSpan="0"
+                            Source="../Images/hw4.jpg"
+                            />
+
+                        <Image x:ConnectionId='18'
+                            Name="imgImagen5"
+                            HorizontalAlignment="Left" 
+                            Height="100" Width="100" 
+                            Margin="0,0,5,5"
+                            VariableSizedWrapGrid.ColumnSpan="0"
+                            VariableSizedWrapGrid.RowSpan="0"
+                            Source="../Images/hw5.png"
+                            />
+
+                        <Image x:ConnectionId='19'
+                            Name="imgImagen6"
+                            HorizontalAlignment="Left" 
+                            Height="100" Width="100" 
+                            Margin="0,0,5,5"
+                            VariableSizedWrapGrid.ColumnSpan="0"
+                            VariableSizedWrapGrid.RowSpan="0"
+                            Source="../Images/hw6.jpg"
+                            />
+
+                        <Image x:ConnectionId='20'
+                            Name="imgImagen7"
+                            HorizontalAlignment="Left" 
+                            Height="100" Width="100" 
+                            Margin="0,0,5,5"
+                            VariableSizedWrapGrid.ColumnSpan="0"
+                            VariableSizedWrapGrid.RowSpan="0"
+                            Source="../Images/hw7.png"
+                            />
+
+                        <Image x:ConnectionId='21'
+                            Name="imgImagen8"
+                            HorizontalAlignment="Left" 
+                            Height="100" Width="100" 
+                            Margin="0,0,5,5"
+                            VariableSizedWrapGrid.ColumnSpan="0"
+                            VariableSizedWrapGrid.RowSpan="0"
+                            Source="../Images/hw8.png"
+                            />
+
+                    </VariableSizedWrapGrid>
+                </ScrollViewer>
+                <Grid
+                        RelativePanel.AlignLeftWith="vswFotos"
+                        RelativePanel.AlignRightWithPanel="True"
+                        Grid.Column="1"
+                        >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10*"/>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="7*"/>
+                            <RowDefinition Height="8*"/>
+                        </Grid.RowDefinitions>
+
+                        <Border x:ConnectionId='9'
+                            Name="brdCajaEnGrid0"
+                            BorderThickness="2"
+                            BorderBrush="Black"
+                            RelativePanel.AlignLeftWithPanel="True"
+                            RelativePanel.AlignRightWithPanel="True"
+                            RelativePanel.Below="brdCaja2"
+                            RelativePanel.Above="brdCaja4"
+                            Padding="5"
+                            Margin="5,5,5,5"
+                            Grid.Row="0"
+                            >
+
+                        <TextBlock 
+                            Text="Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world"
+                            TextWrapping="Wrap"
+                            />
+
+                        </Border>
+
+                    <Border x:ConnectionId='10'
+                            Name="brdCajaEnGrid1"
+                            BorderThickness="2"
+                            BorderBrush="Black"
+                            RelativePanel.AlignLeftWithPanel="True"
+                            RelativePanel.AlignRightWithPanel="True"
+                            RelativePanel.Below="brdCaja2"
+                            RelativePanel.Above="brdCaja4"
+                            Padding="5"
+                            Margin="5,5,5,5"
+                            Grid.Row="1"
+                            >
+
+                        <TextBlock
+                            Text="Hello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world"
+                            TextWrapping="Wrap"
+                            ScrollViewer.IsVerticalRailEnabled="True"
+                            ScrollViewer.VerticalScrollBarVisibility="Auto"
+                            ScrollViewer.IsVerticalScrollChainingEnabled="True"
+                            
+                            />
+
+                    </Border>
+
+                    <Border x:ConnectionId='11'
+                            Name="brdCajaEnGrid2"
+                            BorderThickness="2"
+                            BorderBrush="Black"
+                            RelativePanel.AlignLeftWithPanel="True"
+                            RelativePanel.AlignRightWithPanel="True"
+                            RelativePanel.Below="brdCaja2"
+                            RelativePanel.Above="brdCaja4"
+                            Padding="5"
+                            Margin="5,5,5,5"
+                            Grid.Row="2"
+                            >
+
+                        <TextBlock
+                            Text="Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world"
+                            TextWrapping="Wrap"/>
+
+                    </Border>
+
+                    <Border x:ConnectionId='12'
+                            Name="brdCajaEnGrid3"
+                            BorderThickness="2"
+                            BorderBrush="Black"
+                            RelativePanel.AlignLeftWithPanel="True"
+                            RelativePanel.AlignRightWithPanel="True"
+                            RelativePanel.Below="brdCaja2"
+                            RelativePanel.Above="brdCaja4"
+                            Padding="5"
+                            Margin="5,5,5,5"
+                            Grid.Row="3"
+                            >
+
+                        <TextBlock
+                            Text="Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world"
+                            TextWrapping="Wrap"/>
+
+                    </Border>
+                </Grid>
+
+            <!--</RelativePanel>-->
+                
+            </Grid>
+            
+
+            
+            
+            
+
+        </Border>
+
+        <Border x:ConnectionId='5'
+            Name="brdCaja4"
+            BorderThickness="2"
+            BorderBrush="Black"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignBottomWithPanel="True"
+            Padding="5"
+            Margin="10,5,10,10"
+            >
+            <TextBlock x:ConnectionId='6'
+                Name="CajaFinal"
+                Text="Bye bye world"
+                TextWrapping="Wrap"
+                />
+
+        </Border>
+
+
+
+    </RelativePanel>
+</Page>
+
