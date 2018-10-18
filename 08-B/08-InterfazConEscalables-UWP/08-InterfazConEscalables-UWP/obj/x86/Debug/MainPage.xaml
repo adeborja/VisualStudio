@@ -68,6 +68,8 @@
                 TextWrapping="Wrap"
                 />-->
 
+            
+            <!--se puede poner que el grid tenga 2 columnas y 4 filas y q la columna 0 use las 4 filas -->
             <Grid x:ConnectionId='7'
                 Name="grdContenido"
                 >
@@ -75,6 +77,13 @@
                     <ColumnDefinition Width="4*"/>
                     <ColumnDefinition Width="6*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
                 
                 <!--<RelativePanel
                 HorizontalAlignment="Left"
@@ -89,6 +98,7 @@
                         RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignBottomWithPanel="True"
                         RelativePanel.AlignTopWithPanel="True"
+                    Grid.RowSpan="4"
                     >
 
                     <VariableSizedWrapGrid x:ConnectionId='13'
@@ -181,7 +191,7 @@
 
                     </VariableSizedWrapGrid>
                 </ScrollViewer>
-                <Grid
+                <!--<Grid
                         RelativePanel.AlignLeftWith="vswFotos"
                         RelativePanel.AlignRightWithPanel="True"
                         Grid.Column="1"
@@ -191,7 +201,7 @@
                             <RowDefinition Height="8*"/>
                             <RowDefinition Height="7*"/>
                             <RowDefinition Height="8*"/>
-                        </Grid.RowDefinitions>
+                        </Grid.RowDefinitions>-->
 
                         <Border x:ConnectionId='9'
                             Name="brdCajaEnGrid0"
@@ -204,6 +214,7 @@
                             Padding="5"
                             Margin="5,5,5,5"
                             Grid.Row="0"
+                            Grid.Column="1"
                             >
 
                         <TextBlock 
@@ -224,16 +235,12 @@
                             Padding="5"
                             Margin="5,5,5,5"
                             Grid.Row="1"
+                        Grid.Column="1"
                             >
 
                         <TextBlock
-                            Text="Hello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world"
-                            TextWrapping="Wrap"
-                            ScrollViewer.IsVerticalRailEnabled="True"
-                            ScrollViewer.VerticalScrollBarVisibility="Auto"
-                            ScrollViewer.IsVerticalScrollChainingEnabled="True"
-                            
-                            />
+                            Text="Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world"
+                            TextWrapping="Wrap"/>
 
                     </Border>
 
@@ -248,6 +255,7 @@
                             Padding="5"
                             Margin="5,5,5,5"
                             Grid.Row="2"
+                        Grid.Column="1"
                             >
 
                         <TextBlock
@@ -267,6 +275,7 @@
                             Padding="5"
                             Margin="5,5,5,5"
                             Grid.Row="3"
+                        Grid.Column="1"
                             >
 
                         <TextBlock
@@ -274,7 +283,7 @@
                             TextWrapping="Wrap"/>
 
                     </Border>
-                </Grid>
+                <!--</Grid>-->
 
             <!--</RelativePanel>-->
                 

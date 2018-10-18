@@ -1,1 +1,1 @@
-C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP.csproj;x86
+D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP.csproj;x86

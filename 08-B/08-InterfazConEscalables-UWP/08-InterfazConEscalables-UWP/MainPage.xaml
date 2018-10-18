@@ -77,6 +77,13 @@
                     <ColumnDefinition Width="4*"/>
                     <ColumnDefinition Width="6*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
                 
                 <!--<RelativePanel
                 HorizontalAlignment="Left"
@@ -91,6 +98,7 @@
                         RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignBottomWithPanel="True"
                         RelativePanel.AlignTopWithPanel="True"
+                    Grid.RowSpan="4"
                     >
 
                     <VariableSizedWrapGrid
@@ -183,7 +191,7 @@
 
                     </VariableSizedWrapGrid>
                 </ScrollViewer>
-                <Grid
+                <!--<Grid
                         RelativePanel.AlignLeftWith="vswFotos"
                         RelativePanel.AlignRightWithPanel="True"
                         Grid.Column="1"
@@ -193,7 +201,7 @@
                             <RowDefinition Height="8*"/>
                             <RowDefinition Height="7*"/>
                             <RowDefinition Height="8*"/>
-                        </Grid.RowDefinitions>
+                        </Grid.RowDefinitions>-->
 
                         <Border
                             Name="brdCajaEnGrid0"
@@ -206,6 +214,7 @@
                             Padding="5"
                             Margin="5,5,5,5"
                             Grid.Row="0"
+                            Grid.Column="1"
                             >
 
                         <TextBlock 
@@ -226,6 +235,7 @@
                             Padding="5"
                             Margin="5,5,5,5"
                             Grid.Row="1"
+                        Grid.Column="1"
                             >
 
                         <TextBlock
@@ -245,6 +255,7 @@
                             Padding="5"
                             Margin="5,5,5,5"
                             Grid.Row="2"
+                        Grid.Column="1"
                             >
 
                         <TextBlock
@@ -264,6 +275,7 @@
                             Padding="5"
                             Margin="5,5,5,5"
                             Grid.Row="3"
+                        Grid.Column="1"
                             >
 
                         <TextBlock
@@ -271,7 +283,7 @@
                             TextWrapping="Wrap"/>
 
                     </Border>
-                </Grid>
+                <!--</Grid>-->
 
             <!--</RelativePanel>-->
                 

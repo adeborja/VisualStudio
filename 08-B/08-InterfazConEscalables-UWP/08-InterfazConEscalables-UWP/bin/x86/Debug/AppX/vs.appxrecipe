@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>107-11</Machine>
-    <WindowsUser>adeborja</WindowsUser>
+    <Machine>DESKTOP-IGHAVVV</Machine>
+    <WindowsUser>Angel</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>92fca47d-4ae0-41bf-9bf0-970335da1ea0</PackageIdentityName>
     <PackageIdentityPublisher>CN=adeborja</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>0C70C4B255F47072B5BD22C53BA5FE568C3943EF98552DAA77D94C814F79B91B</RegisteredManifestChecksum>
+    <LayoutDir>D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>D68DB76C56FA5748A6E99B0FBE1C9F5DB89256941FB8E330F7C71AC7A833BB8A</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>92fca47d-4ae0-41bf-9bf0-970335da1ea0_1.0.0.0_x86__59mt7732gc9ga</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>92fca47d-4ae0-41bf-9bf0-970335da1ea0_59mt7732gc9ga!App</RegisteredUserModeAppID>
     <RegisteredPackageID>92fca47d-4ae0-41bf-9bf0-970335da1ea0</RegisteredPackageID>
@@ -28,16 +28,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-17T11:15:07.307</Modified>
+      <Modified>2018-10-17T14:15:15.556</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\08-InterfazConEscalables-UWP.exe">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\08-InterfazConEscalables-UWP.exe">
       <PackagePath>entrypoint\08-InterfazConEscalables-UWP.exe</PackagePath>
-      <Modified>2018-10-17T11:15:06.502</Modified>
+      <Modified>2018-10-17T14:15:14.911</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -295,7 +295,7 @@
       <PackagePath>System.Linq.Queryable.dll</PackagePath>
       <Modified>2016-06-11T21:13:58.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.net.http\4.1.0\runtimes\win\lib\netcore50\System.Net.Http.dll">
+    <AppxPackagedFile Include="C:\Users\Angel\.nuget\packages\system.net.http\4.1.0\runtimes\win\lib\netcore50\System.Net.Http.dll">
       <PackagePath>System.Net.Http.dll</PackagePath>
       <Modified>2016-06-11T21:13:58.000</Modified>
     </AppxPackagedFile>
@@ -345,7 +345,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.private.servicemodel\4.1.3\runtimes\win7\lib\netcore50\System.Private.ServiceModel.dll">
       <PackagePath>System.Private.ServiceModel.dll</PackagePath>
-      <Modified>2018-07-19T15:47:06.000</Modified>
+      <Modified>2018-07-19T13:45:16.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.reflection.context\4.0.1\lib\netcore50\System.Reflection.Context.dll">
       <PackagePath>System.Reflection.Context.dll</PackagePath>
@@ -433,19 +433,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.duplex\4.0.4\lib\netcore50\System.ServiceModel.Duplex.dll">
       <PackagePath>System.ServiceModel.Duplex.dll</PackagePath>
-      <Modified>2018-07-19T13:45:20.000</Modified>
+      <Modified>2018-07-19T15:47:10.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.http\4.1.3\lib\netcore50\System.ServiceModel.Http.dll">
       <PackagePath>System.ServiceModel.Http.dll</PackagePath>
-      <Modified>2018-07-19T13:45:22.000</Modified>
+      <Modified>2018-07-19T15:47:12.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.nettcp\4.1.3\lib\netcore50\System.ServiceModel.NetTcp.dll">
       <PackagePath>System.ServiceModel.NetTcp.dll</PackagePath>
-      <Modified>2018-07-19T13:45:24.000</Modified>
+      <Modified>2018-07-19T15:47:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.primitives\4.1.3\lib\netcore50\System.ServiceModel.Primitives.dll">
       <PackagePath>System.ServiceModel.Primitives.dll</PackagePath>
-      <Modified>2018-07-19T13:45:24.000</Modified>
+      <Modified>2018-07-19T15:47:16.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.security\4.0.4\lib\netcore50\System.ServiceModel.Security.dll">
       <PackagePath>System.ServiceModel.Security.dll</PackagePath>
@@ -495,100 +495,100 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-11T21:15:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw1.png">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw1.png">
       <PackagePath>Images\hw1.png</PackagePath>
-      <Modified>2018-10-16T18:34:36.000</Modified>
+      <Modified>2018-10-17T13:53:33.704</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw2.png">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw2.png">
       <PackagePath>Images\hw2.png</PackagePath>
-      <Modified>2018-10-16T18:34:36.000</Modified>
+      <Modified>2018-10-17T13:53:33.706</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw3.png">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw3.png">
       <PackagePath>Images\hw3.png</PackagePath>
-      <Modified>2018-10-16T18:34:36.000</Modified>
+      <Modified>2018-10-17T13:53:33.746</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw5.png">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw5.png">
       <PackagePath>Images\hw5.png</PackagePath>
-      <Modified>2018-10-16T18:34:36.000</Modified>
+      <Modified>2018-10-17T13:53:33.750</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw7.png">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw7.png">
       <PackagePath>Images\hw7.png</PackagePath>
-      <Modified>2018-10-16T21:42:52.000</Modified>
+      <Modified>2018-10-17T13:53:33.756</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw8.png">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw8.png">
       <PackagePath>Images\hw8.png</PackagePath>
-      <Modified>2018-10-16T21:42:52.000</Modified>
+      <Modified>2018-10-17T13:53:33.759</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2018-10-10T10:07:03.000</Modified>
+      <Modified>2018-10-17T13:53:33.687</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-10T10:07:03.000</Modified>
+      <Modified>2018-10-17T13:53:33.690</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-10T10:07:03.000</Modified>
+      <Modified>2018-10-17T13:53:33.692</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-10T10:07:03.000</Modified>
+      <Modified>2018-10-17T13:53:33.694</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-10T10:07:03.000</Modified>
+      <Modified>2018-10-17T13:53:33.696</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-10T10:07:03.000</Modified>
+      <Modified>2018-10-17T13:53:33.697</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-10T10:07:03.000</Modified>
+      <Modified>2018-10-17T13:53:33.702</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw4.jpg">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw4.jpg">
       <PackagePath>Images\hw4.jpg</PackagePath>
-      <Modified>2018-10-16T18:34:36.000</Modified>
+      <Modified>2018-10-17T13:53:33.748</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw6.jpg">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Images\hw6.jpg">
       <PackagePath>Images\hw6.jpg</PackagePath>
-      <Modified>2018-10-16T21:42:52.000</Modified>
+      <Modified>2018-10-17T13:53:33.753</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2018-10-15T12:07:51.000</Modified>
+      <Modified>2018-10-17T13:53:33.775</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\08-InterfazConEscalables-UWP.xr.xml">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\08-InterfazConEscalables-UWP.xr.xml">
       <PackagePath>08-InterfazConEscalables-UWP.xr.xml</PackagePath>
-      <Modified>2018-10-17T11:14:39.784</Modified>
+      <Modified>2018-10-17T14:15:14.750</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-10-17T11:15:06.278</Modified>
+      <Modified>2018-10-17T14:15:14.786</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2018-10-17T11:15:06.279</Modified>
+      <Modified>2018-10-17T14:15:14.787</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2018-04-19T20:01:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-17T06:40:02.506</Modified>
+      <Modified>2018-10-17T14:12:24.247</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\adeborja\Desktop\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\Core\08-InterfazConEscalables-UWP.exe">
+    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\08-B\08-InterfazConEscalables-UWP\08-InterfazConEscalables-UWP\bin\x86\Debug\Core\08-InterfazConEscalables-UWP.exe">
       <PackagePath>08-InterfazConEscalables-UWP.exe</PackagePath>
-      <Modified>2018-10-17T11:15:07.297</Modified>
+      <Modified>2018-10-17T14:15:15.548</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
