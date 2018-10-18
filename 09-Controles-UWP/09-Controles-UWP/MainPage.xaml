@@ -1,0 +1,171 @@
+﻿<Page
+    x:Class="_09_Controles_UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_09_Controles_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <!--Definicion de filas y columnas-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!--RadioButton-->
+        <!--https://www.tutorialspoint.com/xaml/xaml_radiobutton.htm-->
+        <StackPanel
+            Grid.Column="1"
+            Grid.Row="0">
+            <TextBlock Text="Elige una opcion:"/>
+            <!--<RadioButton Name="rbSi" Margin="5" GroupName="RB" Content="Si" Foreground="Green"/>-->
+            <RadioButton
+                Margin="5"
+                Foreground="Green"
+                GroupName="RB">
+                <StackPanel Orientation="Horizontal">
+                    <!--usar segoe: https://www.youtube.com/watch?v=jzrfPu82wm4-->
+                    <TextBlock FontFamily="segoe mdl2 assets" Text="&#xE73E;" FontSize="20"/>
+                    <TextBlock Text="Yes"/>
+                </StackPanel>
+            </RadioButton>
+            <RadioButton Name="rbNo" Margin="5" GroupName="RB" Content="No" Foreground="Red"/>
+            <RadioButton Name="rbAlomojo" Margin="5" GroupName="RB" Content="Alomojó" Foreground="Gray"/>
+            <Button Name="btnRadioButtons" Margin="15,5" Content="Go"/>
+        </StackPanel>
+        
+        <!--Tooltip-->
+        <!--https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.tooltip-->
+        
+        <!--Un boton con un tooltip simple-->
+        <Button
+            Grid.Row="0"
+            Grid.Column="2"
+            Name="btnTooltip1"
+            Content="boton con tooltip simple"
+            ToolTipService.ToolTip="Simple Tooltip"/>
+        
+        <!--Un texto con un tooltip 'offset'-->
+        <TextBlock 
+            Grid.Row="0"
+            Grid.Column="3"
+            VerticalAlignment="Center"
+            Text="TextBlock con un tooltip">
+            <ToolTipService.ToolTip>
+                <ToolTip
+                    Content="Offset Tooltip"
+                    HorizontalOffset="20"
+                    VerticalOffset="30"
+                    />
+            </ToolTipService.ToolTip>
+        </TextBlock>
+        
+        <!--Pivot-->
+        <!--https://code.msdn.microsoft.com/windowsapps/Pivot-Control-with-Windows-8dc4f280-->
+        <!--usar symbolicon -->
+        <Pivot 
+            Grid.Row="1"
+            Grid.Column="0"
+            Name="pvtPivotMaster"
+            HorizontalAlignment="Center"
+            >
+            <!--<Pivot.RightHeader>
+                <CommandBar ClosedDisplayMode="Compact">
+                    <AppBarButton Name="btnBack" Icon="Back" Label="Previous"/>
+                    <AppBarButton Name="btnForward" Icon="Forward" Label="Forward"/>
+                </CommandBar>
+            </Pivot.RightHeader>-->
+
+            <!--https://asp-net-example.blogspot.com/2016/11/uwp-pivotitem-header-with-image-and-text.html-->
+            <PivotItem>
+                <PivotItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Economia"/>
+                        <TextBlock FontFamily="segoe mdl2 assets" Text="&#xE825;" FontSize="28"/>
+                    </StackPanel>
+                </PivotItem.Header>
+                <StackPanel Orientation="Vertical">
+                    <CheckBox Content="opcion 1"/>
+                    <CheckBox Content="opcion 2"/>
+                    <CheckBox Content="opcion 3"/>
+                </StackPanel>
+            </PivotItem>
+            <PivotItem Header="Pivot Item 1">
+                <TextBlock Text="11111"/>
+            </PivotItem>
+            <PivotItem Header="Pivot Item 2">
+                <TextBlock Text="22222"/>
+            </PivotItem>
+            <PivotItem Header="Pivot Item 3">
+                <TextBlock Text="33333"/>
+            </PivotItem>
+        </Pivot>
+        
+        <!--Corrector de palabras mal escritas-->
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="2"
+            VerticalAlignment="Center"
+            >
+            <TextBox
+                Name="txbChequearPalabra"
+                IsSpellCheckEnabled="True"
+            />
+        </StackPanel>
+        
+        <!--Cajita de contraseña-->
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="3"
+            VerticalAlignment="Center"
+            >
+            <PasswordBox/>
+        </StackPanel>
+        
+        <!--Listbox-->
+        <ListBox
+            Grid.Row="2"
+            Grid.Column="0">
+            <ListBoxItem>Opcion 1</ListBoxItem>
+            <ListBoxItem>Opcion 2</ListBoxItem>
+            <ListBoxItem>Opcion 3</ListBoxItem>
+            <ListBoxItem>Opcion 4</ListBoxItem>
+            <ListBoxItem>Opcion 5</ListBoxItem>
+        </ListBox>
+        
+        <!--Combobox-->
+        <StackPanel
+            Grid.Row="2"
+            Grid.Column="1">
+            <ComboBox>
+                <ComboBoxItem>Opcion 1</ComboBoxItem>
+                <ComboBoxItem>Opcion 2</ComboBoxItem>
+                <ComboBoxItem>Opcion 3</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">Opcion 4</ComboBoxItem>
+                <ComboBoxItem>Opcion 5</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        
+        <!--Slider y progressbar-->
+        
+    </Grid>
+    
+    <!--Extra
+    
+    https://docs.microsoft.com/es-es/windows/uwp/design/controls-and-patterns/pivot
+    
+    Fuente de imagenes: https://docs.microsoft.com/es-es/windows/uwp/design/style/segoe-ui-symbol-font
+    -->
+</Page>
