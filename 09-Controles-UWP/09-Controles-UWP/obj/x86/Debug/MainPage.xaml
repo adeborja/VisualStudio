@@ -41,9 +41,9 @@
                     <TextBlock Text="Yes"/>
                 </StackPanel>
             </RadioButton>
-            <RadioButton x:ConnectionId='5' Name="rbNo" Margin="5" GroupName="RB" Content="No" Foreground="Red"/>
-            <RadioButton x:ConnectionId='6' Name="rbAlomojo" Margin="5" GroupName="RB" Content="Alomojó" Foreground="Gray"/>
-            <Button x:ConnectionId='7' Name="btnRadioButtons" Margin="15,5" Content="Go"/>
+            <RadioButton x:ConnectionId='7' Name="rbNo" Margin="5" GroupName="RB" Content="No" Foreground="Red"/>
+            <RadioButton x:ConnectionId='8' Name="rbAlomojo" Margin="5" GroupName="RB" Content="Alomojó" Foreground="Gray"/>
+            <Button x:ConnectionId='9' Name="btnRadioButtons" Margin="15,5" Content="Go"/>
         </StackPanel>
         
         <!--Tooltip-->
@@ -119,7 +119,7 @@
             Grid.Column="2"
             VerticalAlignment="Center"
             >
-            <TextBox x:ConnectionId='4'
+            <TextBox x:ConnectionId='6'
                 Name="txbChequearPalabra"
                 IsSpellCheckEnabled="True"
             />
@@ -157,6 +157,49 @@
                 <ComboBoxItem>Opcion 5</ComboBoxItem>
             </ComboBox>
         </StackPanel>
+        
+        <!--Slider y progressbar-->
+        <!--https://youtu.be/QJ1XXeCUcIM?t=194-->
+        <Slider x:ConnectionId='4'
+                Name="slider"
+                Grid.Row="2"
+                Grid.Column="2"
+                Grid.ColumnSpan="2"
+                VerticalAlignment="Top"
+                Value="0"/>
+
+        <ProgressBar 
+                Grid.Row="2"
+                Grid.Column="3"
+                Grid.ColumnSpan="1"
+                VerticalAlignment="Center"
+                Value="{Binding ElementName=slider, Path=Value}"/>
+        
+        <!--CalendarView-->
+        <CalendarView
+            Grid.Row="3"
+            Grid.Column="0"/>
+        
+        <!--CalendarDatePicker -->
+        <CalendarDatePicker
+            Grid.Row="3"
+            Grid.Column="1"/>
+        
+        <!--DatePicker-->
+        <DatePicker
+            Grid.Row="3"
+            Grid.Column="2"/>
+
+        <!--Boton-->
+        <Button x:ConnectionId='5'
+            Grid.Row="3"
+            Grid.Column="3"
+            Content="Ir a pagina 2"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+                                />
+
+
     </Grid>
     
     <!--Extra
