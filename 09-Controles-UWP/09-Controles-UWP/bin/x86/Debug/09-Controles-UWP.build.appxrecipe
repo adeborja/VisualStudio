@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-IGHAVVV</Machine>
-    <WindowsUser>Angel</WindowsUser>
+    <Machine>107-11</Machine>
+    <WindowsUser>adeborja</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>0d06741f-54bd-4e2e-85ae-1311fa5a3ec9</PackageIdentityName>
     <PackageIdentityPublisher>CN=adeborja</PackageIdentityPublisher>
-    <IntermediateOutputPath>D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\09-Controles-UWP.exe">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\09-Controles-UWP.exe">
       <PackagePath>entrypoint\09-Controles-UWP.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
@@ -70,10 +70,10 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.visualbasic\10.0.1\lib\netcore50\Microsoft.VisualBasic.dll">
       <PackagePath>Microsoft.VisualBasic.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Angel\.nuget\packages\mytoolkit\2.5.16\lib\portable-net45+wp8+win8+wpa81\MyToolkit.dll">
+    <AppxPackagedFile Include="C:\Users\adeborja\.nuget\packages\mytoolkit\2.5.16\lib\portable-net45+wp8+win8+wpa81\MyToolkit.dll">
       <PackagePath>MyToolkit.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Angel\.nuget\packages\mytoolkit.extended\2.5.16\lib\uap10.0\MyToolkit.Extended.dll">
+    <AppxPackagedFile Include="C:\Users\adeborja\.nuget\packages\mytoolkit.extended\2.5.16\lib\uap10.0\MyToolkit.Extended.dll">
       <PackagePath>MyToolkit.Extended.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.any.system.collections\4.0.11\lib\netcore50\System.Collections.dll">
@@ -226,7 +226,7 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.linq.queryable\4.0.1\lib\netcore50\System.Linq.Queryable.dll">
       <PackagePath>System.Linq.Queryable.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Angel\.nuget\packages\system.net.http\4.1.0\runtimes\win\lib\netcore50\System.Net.Http.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.net.http\4.1.0\runtimes\win\lib\netcore50\System.Net.Http.dll">
       <PackagePath>System.Net.Http.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.net.http.rtc\4.0.1\runtimes\win\lib\netcore50\System.Net.Http.Rtc.dll">
@@ -376,59 +376,59 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.xml.xmlserializer\4.0.11\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\09-Controles-UWP.xr.xml">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\09-Controles-UWP.xr.xml">
       <PackagePath>09-Controles-UWP.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\BlankPage1.xbf">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\BlankPage1.xbf">
       <PackagePath>BlankPage1.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Angel\.nuget\packages\mytoolkit.extended\2.5.16\lib\uap10.0\MyToolkit.Extended\MyToolkit.Extended.xr.xml">
+    <AppxPackagedFile Include="C:\Users\adeborja\.nuget\packages\mytoolkit.extended\2.5.16\lib\uap10.0\MyToolkit.Extended\MyToolkit.Extended.xr.xml">
       <PackagePath>MyToolkit.Extended\MyToolkit.Extended.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Ciclo\GitHub\Repositorios\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\Core\09-Controles-UWP.exe">
+    <AppxPackagedFile Include="D:\Github Angel\VisualStudio\09-Controles-UWP\09-Controles-UWP\bin\x86\Debug\Core\09-Controles-UWP.exe">
       <PackagePath>09-Controles-UWP.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

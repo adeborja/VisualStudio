@@ -122,6 +122,9 @@
             <TextBox x:ConnectionId='6'
                 Name="txbChequearPalabra"
                 IsSpellCheckEnabled="True"
+                AcceptsReturn="True"
+                TextWrapping="Wrap"
+                Height="150"
             />
         </StackPanel>
         
@@ -166,14 +169,18 @@
                 Grid.Column="2"
                 Grid.ColumnSpan="2"
                 VerticalAlignment="Top"
-                Value="0"/>
+                Value="0"
+            TickFrequency="10"
+            TickPlacement="BottomRight"
+            
+            />
 
         <ProgressBar 
                 Grid.Row="2"
                 Grid.Column="3"
                 Grid.ColumnSpan="1"
                 VerticalAlignment="Center"
-                Value="{Binding ElementName=slider, Path=Value}"/>
+                Value="{Binding ElementName=slider, Path=Value, Mode=OneWay}"/>
         
         <!--CalendarView-->
         <CalendarView
