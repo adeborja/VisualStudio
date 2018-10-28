@@ -1,0 +1,370 @@
+﻿<Page
+    x:Class="_11_VisualStateManager.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_11_VisualStateManager"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="visualStateGroup">
+                <VisualState x:Name="ancho">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="550"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--disposicion del scrollviewer de imagenes-->
+                        <!--<Setter Target="sclImagenes.IsEnabled" Value="False"/>
+                        
+                        <Setter Target="sclImagenes.(RelativePanel.AlignTopWithPanel)" Value="True"/>
+                        <Setter Target="sclImagenes.(RelativePanel.AlignLeftWithPanel)" Value="False"/>
+                        <Setter Target="sclImagenes.(RelativePanel.RightOf)" Value="stpBotones"/>-->
+
+                        <!--disposicion del grid de imagenes-->
+                        <Setter Target="grdImagenes.(RelativePanel.AlignTopWithPanel)" Value="True"/>
+                        <Setter Target="grdImagenes.(RelativePanel.AlignLeftWithPanel)" Value="False"/>
+                        <Setter Target="grdImagenes.(RelativePanel.RightOf)" Value="stpBotones"/>
+
+                        <!--barra de botones-->
+                        <Setter Target="stpBotones.(RelativePanel.AlignBottomWithPanel)" Value="True"/>
+                        <Setter Target="stpBotones.(RelativePanel.AlignRightWithPanel)" Value="False"/>
+                        
+                        <Setter Target="stpBtn1.(Grid.Row)" Value="0"/>
+                        <Setter Target="stpBtn1.(Grid.Column)" Value="0"/>
+                        
+                        <Setter Target="stpBtn2.(Grid.Row)" Value="1"/>
+                        <Setter Target="stpBtn2.(Grid.Column)" Value="0"/>
+                        
+                        <Setter Target="stpBtn3.(Grid.Row)" Value="2"/>
+                        <Setter Target="stpBtn3.(Grid.Column)" Value="0"/>
+                        
+                        <Setter Target="stpBtn4.(Grid.Row)" Value="3"/>
+                        <Setter Target="stpBtn4.(Grid.Column)" Value="0"/>
+
+                        <!--imagenes-->
+                        <Setter Target="imagen1.(Grid.Row)" Value="0"/>
+                        <Setter Target="imagen1.(Grid.Column)" Value="0"/>
+                        <Setter Target="imagen1.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="imagen1.(Grid.RowSpan)" Value="3"/>
+                        <Setter Target="imagen1.Stretch" Value="UniformToFill"/>
+                        <Setter Target="imagen1.HorizontalAlignment" Value="Center"/>
+                        <Setter Target="imagen1.VerticalAlignment" Value="Center"/>
+
+                        <Setter Target="imagen2.(Grid.Row)" Value="0"/>
+                        <Setter Target="imagen2.(Grid.Column)" Value="1"/>
+                        <Setter Target="imagen2.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="imagen2.(Grid.RowSpan)" Value="3"/>
+                        <Setter Target="imagen2.Stretch" Value="UniformToFill"/>
+                        <Setter Target="imagen2.HorizontalAlignment" Value="Center"/>
+                        <Setter Target="imagen2.VerticalAlignment" Value="Center"/>
+                        
+                        <Setter Target="imagen3.(Grid.Row)" Value="0"/>
+                        <Setter Target="imagen3.(Grid.Column)" Value="2"/>
+                        <Setter Target="imagen3.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="imagen3.(Grid.RowSpan)" Value="3"/>
+                        <Setter Target="imagen3.Stretch" Value="UniformToFill"/>
+                        <Setter Target="imagen3.HorizontalAlignment" Value="Center"/>
+                        <Setter Target="imagen3.VerticalAlignment" Value="Center"/>
+                        
+                        <Setter Target="imagen4.(Grid.Row)" Value="3"/>
+                        <Setter Target="imagen4.(Grid.Column)" Value="0"/>
+                        <Setter Target="imagen4.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="imagen4.(Grid.RowSpan)" Value="3"/>
+                        <Setter Target="imagen4.Stretch" Value="UniformToFill"/>
+                        <Setter Target="imagen4.HorizontalAlignment" Value="Center"/>
+                        <Setter Target="imagen4.VerticalAlignment" Value="Center"/>
+                        
+                        <Setter Target="imagen5.(Grid.Row)" Value="3"/>
+                        <Setter Target="imagen5.(Grid.Column)" Value="1"/>
+                        <Setter Target="imagen5.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="imagen5.(Grid.RowSpan)" Value="3"/>
+                        <Setter Target="imagen5.Stretch" Value="UniformToFill"/>
+                        <Setter Target="imagen5.HorizontalAlignment" Value="Center"/>
+                        <Setter Target="imagen5.VerticalAlignment" Value="Center"/>
+                        
+                        <Setter Target="imagen6.(Grid.Row)" Value="3"/>
+                        <Setter Target="imagen6.(Grid.Column)" Value="2"/>
+                        <Setter Target="imagen6.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="imagen6.(Grid.RowSpan)" Value="3"/>
+                        <Setter Target="imagen6.Stretch" Value="UniformToFill"/>
+                        <Setter Target="imagen6.HorizontalAlignment" Value="Center"/>
+                        <Setter Target="imagen6.VerticalAlignment" Value="Center"/>
+                        
+                        <Setter Target="imagen7.(Grid.Row)" Value="6"/>
+                        <Setter Target="imagen7.(Grid.Column)" Value="0"/>
+                        <Setter Target="imagen7.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="imagen7.(Grid.RowSpan)" Value="3"/>
+                        <Setter Target="imagen7.Stretch" Value="UniformToFill"/>
+                        <Setter Target="imagen7.HorizontalAlignment" Value="Center"/>
+                        <Setter Target="imagen7.VerticalAlignment" Value="Center"/>
+                        
+                        <Setter Target="imagen8.(Grid.Row)" Value="6"/>
+                        <Setter Target="imagen8.(Grid.Column)" Value="1"/>
+                        <Setter Target="imagen8.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="imagen8.(Grid.RowSpan)" Value="3"/>
+                        <Setter Target="imagen8.Stretch" Value="UniformToFill"/>
+                        <Setter Target="imagen8.HorizontalAlignment" Value="Center"/>
+                        <Setter Target="imagen8.VerticalAlignment" Value="Center"/>
+                        
+                        <Setter Target="imagen9.(Grid.Row)" Value="6"/>
+                        <Setter Target="imagen9.(Grid.Column)" Value="2"/>
+                        <Setter Target="imagen9.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="imagen9.(Grid.RowSpan)" Value="3"/>
+                        <Setter Target="imagen9.Stretch" Value="UniformToFill"/>
+                        <Setter Target="imagen9.HorizontalAlignment" Value="Center"/>
+                        <Setter Target="imagen9.VerticalAlignment" Value="Center"/>
+
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="estrecho">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--disposicion del scrollviewer de imagenes-->
+                        <!--<Setter Target="sclImagenes.(RelativePanel.AlignTopWithPanel)" Value="False"/>
+                        <Setter Target="sclImagenes.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="sclImagenes.(RelativePanel.Below)" Value="stpBotones"/>-->
+
+                        <!--disposicion del grid de imagenes-->
+                        <Setter Target="grdImagenes.(RelativePanel.AlignTopWithPanel)" Value="False"/>
+                        <Setter Target="grdImagenes.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="grdImagenes.(RelativePanel.Below)" Value="stpBotones"/>
+
+                        <!--barra de botones-->
+                        <Setter Target="stpBotones.(RelativePanel.AlignBottomWithPanel)" Value="False"/>
+                        <Setter Target="stpBotones.(RelativePanel.AlignRightWithPanel)" Value="True"/>
+
+                        <Setter Target="stpBtn1.(Grid.Row)" Value="0"/>
+                        <Setter Target="stpBtn1.(Grid.Column)" Value="0"/>
+
+                        <Setter Target="stpBtn2.(Grid.Row)" Value="0"/>
+                        <Setter Target="stpBtn2.(Grid.Column)" Value="1"/>
+
+                        <Setter Target="stpBtn3.(Grid.Row)" Value="0"/>
+                        <Setter Target="stpBtn3.(Grid.Column)" Value="2"/>
+
+                        <Setter Target="stpBtn4.(Grid.Row)" Value="0"/>
+                        <Setter Target="stpBtn4.(Grid.Column)" Value="3"/>
+
+                        <!--imagenes-->
+                        <Setter Target="imagen1.(Grid.Row)" Value="0"/>
+                        <Setter Target="imagen1.(Grid.Column)" Value="0"/>
+                        <Setter Target="imagen1.(Grid.ColumnSpan)" Value="3"/>
+                        <Setter Target="imagen1.(Grid.RowSpan)" Value="1"/>
+                        <Setter Target="imagen1.Stretch" Value="Uniform"/>
+
+                        <Setter Target="imagen2.(Grid.Row)" Value="1"/>
+                        <Setter Target="imagen2.(Grid.Column)" Value="0"/>
+                        <Setter Target="imagen2.(Grid.ColumnSpan)" Value="3"/>
+                        <Setter Target="imagen2.(Grid.RowSpan)" Value="1"/>
+                        <Setter Target="imagen2.Stretch" Value="Uniform"/>
+                        
+                        <Setter Target="imagen3.(Grid.Row)" Value="2"/>
+                        <Setter Target="imagen3.(Grid.Column)" Value="0"/>
+                        <Setter Target="imagen3.(Grid.ColumnSpan)" Value="3"/>
+                        <Setter Target="imagen3.(Grid.RowSpan)" Value="1"/>
+                        <Setter Target="imagen3.Stretch" Value="Uniform"/>
+                        
+                        <Setter Target="imagen4.(Grid.Row)" Value="3"/>
+                        <Setter Target="imagen4.(Grid.Column)" Value="0"/>
+                        <Setter Target="imagen4.(Grid.ColumnSpan)" Value="3"/>
+                        <Setter Target="imagen4.(Grid.RowSpan)" Value="1"/>
+                        <Setter Target="imagen4.Stretch" Value="Uniform"/>
+                        
+                        <Setter Target="imagen5.(Grid.Row)" Value="4"/>
+                        <Setter Target="imagen5.(Grid.Column)" Value="0"/>
+                        <Setter Target="imagen5.(Grid.ColumnSpan)" Value="3"/>
+                        <Setter Target="imagen5.(Grid.RowSpan)" Value="1"/>
+                        <Setter Target="imagen5.Stretch" Value="Uniform"/>
+                        
+                        <Setter Target="imagen6.(Grid.Row)" Value="5"/>
+                        <Setter Target="imagen6.(Grid.Column)" Value="0"/>
+                        <Setter Target="imagen6.(Grid.ColumnSpan)" Value="3"/>
+                        <Setter Target="imagen6.(Grid.RowSpan)" Value="1"/>
+                        <Setter Target="imagen6.Stretch" Value="Uniform"/>
+                        
+                        <Setter Target="imagen7.(Grid.Row)" Value="6"/>
+                        <Setter Target="imagen7.(Grid.Column)" Value="0"/>
+                        <Setter Target="imagen7.(Grid.ColumnSpan)" Value="3"/>
+                        <Setter Target="imagen7.(Grid.RowSpan)" Value="1"/>
+                        <Setter Target="imagen7.Stretch" Value="Uniform"/>
+                        
+                        <Setter Target="imagen8.(Grid.Row)" Value="7"/>
+                        <Setter Target="imagen8.(Grid.Column)" Value="0"/>
+                        <Setter Target="imagen8.(Grid.ColumnSpan)" Value="3"/>
+                        <Setter Target="imagen8.(Grid.RowSpan)" Value="1"/>
+                        <Setter Target="imagen8.Stretch" Value="Uniform"/>
+                        
+                        <Setter Target="imagen9.(Grid.Row)" Value="8"/>
+                        <Setter Target="imagen9.(Grid.Column)" Value="0"/>
+                        <Setter Target="imagen9.(Grid.ColumnSpan)" Value="3"/>
+                        <Setter Target="imagen9.(Grid.RowSpan)" Value="1"/>
+                        <Setter Target="imagen9.Stretch" Value="Uniform"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+        
+        
+        <!--Barra de botones-->
+        <StackPanel
+            Name="stpBotones"
+            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            Background="DeepSkyBlue"
+            >
+            <Grid 
+                Name="grdBotones"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!--boton añadir-->
+                <StackPanel 
+                    Name="stpBtn1"
+                    Orientation="Vertical"
+                    Grid.Row="0">
+                    <AppBarButton 
+                        Icon="Add"/>
+                    <TextBlock 
+                        Text="Añadir"
+                        IsHitTestVisible="False"
+                        HorizontalAlignment="Center"
+                        Margin="0,-20,0,0"
+                        />
+                </StackPanel>
+                <!--boton ir-->
+                <StackPanel 
+                    Name="stpBtn2"
+                    Orientation="Vertical"
+                    Grid.Row="1">
+                    <AppBarButton 
+                        Icon="Go"/>
+                    <TextBlock 
+                        Text="Ir"
+                        IsHitTestVisible="False"
+                        HorizontalAlignment="Center"
+                        Margin="0,-20,0,0"/>
+                </StackPanel>
+                <!--boton objetivo-->
+                <StackPanel 
+                    Name="stpBtn3"
+                    Orientation="Vertical"
+                    Grid.Row="2">
+                    <AppBarButton 
+                        Icon="Target"/>
+                    <TextBlock 
+                        Text="Objetivo"
+                        IsHitTestVisible="False"
+                        HorizontalAlignment="Center"
+                        Margin="0,-20,0,0"/>
+                </StackPanel>
+                <!--boton añadir 2-->
+                <StackPanel 
+                    Name="stpBtn4"
+                    Orientation="Vertical"
+                    Grid.Row="3">
+                    <AppBarButton 
+                        Icon="AddFriend"/>
+                    <TextBlock 
+                        Text="Ir"
+                        IsHitTestVisible="False"
+                        HorizontalAlignment="Center"
+                        Margin="0,-20,0,0"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        
+        <!--Zona de Imagenes-->
+        <!--<ScrollViewer
+            Name="sclImagenes"
+            VerticalScrollBarVisibility="Auto"
+            VerticalContentAlignment="Top"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignBottomWithPanel="True"
+            >-->
+
+
+            <Grid 
+                Name="grdImagenes"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.AlignBottomWithPanel="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!--imagen 1-->
+                <Image 
+                Name="imagen1"
+                Source="../Images/1.jpg" />
+                <!--imagen 2-->
+                <Image 
+                Name="imagen2"
+                Source="../Images/2.jpg" />
+                <!--imagen 3-->
+                <Image 
+                Name="imagen3"
+                Source="../Images/3.jpg" />
+                <!--imagen 4-->
+                <Image 
+                Name="imagen4"
+                Source="../Images/4.jpg" />
+                <!--imagen 5-->
+                <Image 
+                Name="imagen5"
+                Source="../Images/5.jpg" />
+                <!--imagen 6-->
+                <Image 
+                Name="imagen6"
+                Source="../Images/6.jpg" />
+                <!--imagen 7-->
+                <Image 
+                Name="imagen7"
+                Source="../Images/7.jpg" />
+                <!--imagen 8-->
+                <Image 
+                Name="imagen8"
+                Source="../Images/8.jpg" />
+                <!--imagen 9-->
+                <Image 
+                Name="imagen9"
+                Source="../Images/9.jpg" />
+
+            </Grid>
+
+        <!--</ScrollViewer>-->
+    </RelativePanel>
+</Page>
