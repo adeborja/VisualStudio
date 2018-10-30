@@ -20,6 +20,137 @@
     -->
     
     <RelativePanel>
+
+        
+        <Grid
+            Name="grdPrincipal"
+            RelativePanel.AlignBottomWithPanel="True"
+            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--#region la barra de arriba-->
+            
+            <Button
+                    Name="HamburgerMenu"
+                    FontFamily="segoe mdl2 assets"
+                    Content="&#xE700;"
+                    Grid.Column="0"
+                Height="35"
+                    />
+
+            <!--horizontal-->
+        <StackPanel 
+            Grid.Row="0"
+            Grid.Column="1"
+            Orientation="Horizontal"
+            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            Background="LightGray"
+            >
+            <!--<Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*" MinWidth="50"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+                
+                
+
+                <TextBlock
+                    Name="TitleName"
+                    Text="Hola"
+                    VerticalAlignment="Center"
+                    Margin="10,0,0,0"
+                    Grid.Column="0"
+                    />
+                <TextBox
+                    Name="TitleName3"
+                    Text=""
+                    PlaceholderText="Search"
+                    VerticalAlignment="Center"
+                    Margin="10,0,0,0"
+                    Grid.Column="2"
+                    />
+
+                <SymbolIcon
+                    Symbol="Zoom"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Grid.Column="3"
+                    
+                    />
+            </Grid>-->
+                <RelativePanel
+                    VerticalAlignment="Center">
+                    
+                    <TextBlock
+                    Name="TitleName"
+                    Text="Hola"
+                    VerticalAlignment="Center"
+                    Margin="10,0,0,0"
+                        RelativePanel.AlignTopWithPanel="True"
+                        RelativePanel.AlignLeftWithPanel="True"
+                    />
+                    
+                    <TextBox
+                    Name="txbBarraBusqueda"
+                    Text=""
+                    PlaceholderText="Search"
+                    VerticalAlignment="Center"
+                    Margin="10,0,0,0"
+                        RelativePanel.RightOf="TitleName"
+                    />
+
+                    <SymbolIcon
+                    Symbol="Zoom"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                        RelativePanel.AlignRightWithPanel="True"
+                    />
+                </RelativePanel>
+        </StackPanel>
+
+            <!--#endregion-->
+            
+            
+            <!--#region splitview-->
+
+            <SplitView
+            DisplayMode="CompactInline"
+            CompactPaneLength="40"
+            OpenPaneLength="120"
+                Grid.Row="1"
+            >
+                <SplitView.Pane>
+                    <ListBox>
+                        
+                    </ListBox>
+                </SplitView.Pane>
+                
+                
+            </SplitView>
+
+
+
+            <!--#endregion-->
+
+
+        </Grid>
+        
+        
+        
         
     </RelativePanel>
 </Page>
