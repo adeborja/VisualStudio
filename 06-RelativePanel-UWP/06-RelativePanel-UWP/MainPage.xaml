@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="_06_RelativePanel_UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_06_RelativePanel_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel>
+        <StackPanel 
+            Name="stkpnlBarraBotones" 
+            Orientation="Horizontal"
+            RelativePanel.AlignTopWithPanel="True"
+            >
+            <AppBarButton Icon="Audio"/>
+            <AppBarButton Icon="Calculator"/>
+            <AppBarButton Icon="Dislike"/>
+            <AppBarButton Icon="Mute"/>
+        </StackPanel>
+
+        <ListView 
+            Name="lstvwListaTexto" 
+            RelativePanel.Below="stkpnlBarraBotones"
+            RelativePanel.Above="stkpnlBotonesFlechas"
+            RelativePanel.AlignLeftWith="stkpnlBarraBotones"
+            RelativePanel.AlignRightWith="stkpnlBarraBotones">
+            <x:String>Linea 1</x:String>
+            <x:String>Linea 2</x:String>
+            <x:String>Linea 3</x:String>
+            <x:String>Linea 4</x:String>
+            <x:String>Linea 5</x:String>
+            <x:String>Linea 6</x:String>
+        </ListView>
+
+        <StackPanel 
+            Name="stkpnlBotonesFlechas" 
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            RelativePanel.AlignBottomWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWith="stkpnlBarraBotones">
+            <AppBarButton Icon="Back"/>
+            <AppBarButton Icon="Forward"/>
+
+        </StackPanel>
+
+        <AppBarButton 
+            Name="btnCruz"
+            Icon="Cancel"
+            RelativePanel.Above="stkpnlBotonesFlechas"
+            RelativePanel.AlignRightWith="stkpnlBotonesFlechas"
+            Click="btnCruz_Click"
+            />
+
+    </RelativePanel>
+</Page>

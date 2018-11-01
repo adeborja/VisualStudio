@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="_05_InterfazEscalable_UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_05_InterfazEscalable_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <VariableSizedWrapGrid Orientation="Horizontal">
+        <Button 
+            Content="Button 1" 
+            HorizontalAlignment="0" 
+            VerticalAlignment="0"
+            />
+
+        <Button 
+            Content="Button 2" 
+            HorizontalAlignment="0" 
+            VerticalAlignment="0"
+            />
+
+        <Button 
+            Content="Button 3" 
+            HorizontalAlignment="0" 
+            VerticalAlignment="0"
+            />
+
+        <Button 
+            Content="Button 4" 
+            HorizontalAlignment="0" 
+            VerticalAlignment="0"
+            />
+
+        <Button 
+            Content="Button 5" 
+            HorizontalAlignment="0" 
+            VerticalAlignment="0"
+            />
+
+
+    </VariableSizedWrapGrid>
+
+
+</Page>
