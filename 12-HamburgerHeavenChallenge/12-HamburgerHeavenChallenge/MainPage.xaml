@@ -34,49 +34,74 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <!--#region la barra de arriba-->
             
             <Button
-                    Name="HamburgerMenu"
-                    FontFamily="segoe mdl2 assets"
-                    Content="&#xE700;"
-                    Grid.Column="0"
+                Name="HamburgerMenu"
+                FontFamily="segoe mdl2 assets"
+                Content="&#xE700;"
+                Grid.Row="0"
+                Grid.Column="0"
                 Height="35"
-                    />
+                Width="40"
+                Click="HamburgerMenu_Click"
+                />
 
             <!--horizontal-->
-        <StackPanel 
-            Grid.Row="0"
-            Grid.Column="1"
-            Orientation="Horizontal"
-            RelativePanel.AlignTopWithPanel="True"
-            RelativePanel.AlignLeftWithPanel="True"
-            RelativePanel.AlignRightWithPanel="True"
-            Background="LightGray"
-            >
-            <!--<Grid>
+        <!--<StackPanel 
+            >-->
+                
+            <Grid
+                Name="ElGrid"
+                Grid.Row="0"
+                Grid.Column="1"
+                RelativePanel.AlignTopWithPanel="True"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                Background="LightGray">
+                
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="0" x:Name="columnaFlecha"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*" MinWidth="50"/>
                     <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
-                
+
                 
 
-                <TextBlock
-                    Name="TitleName"
-                    Text="Hola"
-                    VerticalAlignment="Center"
-                    Margin="10,0,0,0"
+                <Button
+                    Name="BackButton"
+                    Background="LightGray"
+                    BorderBrush="LightGray"
                     Grid.Column="0"
-                    />
+                    HorizontalAlignment="Left"
+                    Click="BackButton_Click"
+                    >
+                    <SymbolIcon Symbol="Back"/>
+                </Button>
+
+
+
+                        <TextBlock
+                        Name="txbNombreVentana"
+                        Text="Hola"
+                        VerticalAlignment="Center"
+                        Margin="10,0,0,0"
+                        Grid.Column="1"
+                        FontWeight="Bold"
+                        />
+
+                    <!--<Border Grid.Column="1">
+                        <Rectangle Fill="Azure"/>
+                    </Border>-->
+
                 <TextBox
-                    Name="TitleName3"
+                    Name="tbxBarraBusqueda"
                     Text=""
                     PlaceholderText="Search"
                     VerticalAlignment="Center"
@@ -87,16 +112,18 @@
                 <SymbolIcon
                     Symbol="Zoom"
                     VerticalAlignment="Center"
-                    HorizontalAlignment="Right"
+                    HorizontalAlignment="Center"
                     Grid.Column="3"
                     
                     />
-            </Grid>-->
-                <RelativePanel
+
+                
+            </Grid>
+                <!--<RelativePanel
                     VerticalAlignment="Center">
                     
                     <TextBlock
-                    Name="TitleName"
+                    Name="txbNombreVentana"
                     Text="Hola"
                     VerticalAlignment="Center"
                     Margin="10,0,0,0"
@@ -119,8 +146,8 @@
                     HorizontalAlignment="Right"
                         RelativePanel.AlignRightWithPanel="True"
                     />
-                </RelativePanel>
-        </StackPanel>
+                </RelativePanel>-->
+        <!--</StackPanel>-->
 
             <!--#endregion-->
             
@@ -128,17 +155,37 @@
             <!--#region splitview-->
 
             <SplitView
-            DisplayMode="CompactInline"
-            CompactPaneLength="40"
-            OpenPaneLength="120"
+                Name="splitView"
+                DisplayMode="CompactOverlay"
+                CompactPaneLength="40"
+                OpenPaneLength="120"
                 Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
             >
                 <SplitView.Pane>
-                    <ListBox>
-                        
+                    <ListBox
+                        SelectionMode="Single"
+                        Name="lbxBotones"
+                        SelectionChanged="lbxBotones_SelectionChanged">
+                        <ListBoxItem Name="lbiHome">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Home" Margin="-3,0,0,0"/>
+                                <TextBlock Text="Home" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem Name="lbiFavorites">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="OutlineStar" Margin="-3,0,0,0"/>
+                                <TextBlock Text="Favorites" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </ListBoxItem>
                     </ListBox>
                 </SplitView.Pane>
-                
+
+                <SplitView.Content>
+                    <Frame Name="frmSplitView"/>
+                </SplitView.Content>
                 
             </SplitView>
 
