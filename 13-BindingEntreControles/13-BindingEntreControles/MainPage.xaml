@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="_13_BindingEntreControles.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_13_BindingEntreControles"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <Grid
+            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.AlignBottomWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Slider
+                Name="SliderTexto"
+                Grid.Row="0"
+                VerticalAlignment="Top"
+                TickPlacement="TopLeft"
+                TickFrequency="1"
+                Minimum="0"
+                Maximum="100"
+                Value="30"
+                />
+
+            <TextBlock
+                Name="tblTexto"
+                Grid.Row="1"
+                FontSize="{Binding ElementName=SliderTexto, Path=Value}"
+                Text="TextoOoOo"
+                VerticalAlignment="Center"
+                />
+
+            <TextBox
+                Name="tbxTexto"
+                Grid.Row="2"
+                FontSize="30"
+                Text="{Binding ElementName=SliderTexto, Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                />
+        </Grid>
+    </RelativePanel>
+</Page>
