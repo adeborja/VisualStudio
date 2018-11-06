@@ -7,7 +7,7 @@ namespace _14_DataBinding.Models.DAL
 {
     public class clsListadoDeDepartamentos
     {
-        public List<clsDepartamento> listadoCompletoDepartamentos()
+        public static List<clsDepartamento> listadoCompletoDepartamentos()
         {
             List<clsDepartamento> lista = new List<clsDepartamento>();
 

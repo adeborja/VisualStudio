@@ -16,6 +16,7 @@ namespace _14_DataBinding.ViewModels
         private List<clsPersona> _listadoDePersonas;
         private clsPersona _personaSeleccionada;
         private List<clsDepartamento> _listadoDepartamentos;
+        private clsDepartamento _departamentoSeleccionado;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -63,6 +64,19 @@ namespace _14_DataBinding.ViewModels
             }
         }
 
+        public clsDepartamento departamentoSeleccionado
+        {
+            get
+            {
+                return _departamentoSeleccionado;
+            }
+            set
+            {
+                _departamentoSeleccionado = value;
+                OnPropertyChanged("departamentoSeleccionado");
+            }
+        }
+
         #endregion
 
         protected void OnPropertyChanged(string name)
@@ -82,6 +96,8 @@ namespace _14_DataBinding.ViewModels
         {
             //Cargar el listado de personas
             _listadoDePersonas = clsListadoPersonas.getListado();
+
+            _listadoDepartamentos = clsListadoDeDepartamentos.listadoCompletoDepartamentos();
         }
 
         #endregion

@@ -26,5 +26,10 @@ namespace _14_DataBinding
         {
             this.InitializeComponent();
         }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

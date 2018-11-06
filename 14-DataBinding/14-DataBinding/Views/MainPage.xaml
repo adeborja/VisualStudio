@@ -86,6 +86,7 @@
                 Text="Fecha de Nacimiento:"
                 FontSize="20"
                 VerticalAlignment="Bottom"
+                TextWrapping="Wrap"
                 />
             
             <TextBlock
@@ -110,6 +111,7 @@
                 Text="Departamento:"
                 FontSize="20"
                 VerticalAlignment="Bottom"
+                TextWrapping="Wrap"
                 />
             <!--#endregion-->
             
@@ -155,16 +157,44 @@
                 VerticalAlignment="Bottom"
                 />
             
-            <TextBox
+            <!--<TextBox
                 Grid.Row="5"
                 Grid.Column="1"
                 Text="dep"
                 FontSize="20"
                 VerticalAlignment="Bottom"
-                />
+                />-->
 
 
             <!--#endregion-->
+
+            <!--https://www.codeproject.com/Articles/301678/Step-by-Step-WPF-Data-Binding-with-Comboboxes-->
+            <ComboBox
+                Name="cbxNombreDepartamento"
+                Grid.Row="5"
+                Grid.Column="1"
+                VerticalAlignment="Bottom"
+                ItemsSource="{Binding listadoDepartamentos}"
+                DisplayMemberPath="nombreDepartamento"
+                SelectedValuePath="idDepartamento"
+                SelectedValue="{Binding personaSeleccionada.idDepartamento, Mode=TwoWay}"
+                />
+
+            <Button 
+                Name="btnGuardar"
+                Grid.Row="6"
+                Grid.Column="0"
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                Content="GUARDAR"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="30"
+                Click="btnGuardar_Click"
+                Background="CornflowerBlue"
+                Foreground="White"
+                BorderBrush="Black"
+                />
         </Grid>
         
         
