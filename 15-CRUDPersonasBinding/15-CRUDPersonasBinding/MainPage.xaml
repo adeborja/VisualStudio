@@ -1,0 +1,197 @@
+﻿<Page
+    x:Class="_15_CRUDPersonasBinding.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_15_CRUDPersonasBinding"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    
+    xmlns:miViewModel="using:_15_CRUDPersonasBinding_Entidades.ViewModels"
+    >
+
+    <Page.DataContext>
+        <miViewModel:MainPageViewModel/>
+    </Page.DataContext>
+
+    <RelativePanel>
+        <!--ponemos twoway para que la propiedad personaSeleccionada del viewmodel se actualice-->
+
+        <!--listview-->
+        <ListView Name="lsvLista" 
+                  
+                  RelativePanel.AlignTopWithPanel="True"
+                  RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignBottomWithPanel="True"
+                  MinWidth="150"
+                  >
+            <!--ItemsSource="{Binding listadoDePersonas}"
+                  SelectedItem="{Binding personaSeleccionada, Mode=TwoWay}"-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <!--<TextBlock Text="{Binding Path=apellidos}"/>-->
+                        <TextBlock Text=","/>
+                        <!--<TextBlock Text="{Binding Path=nombre}" Margin="5,0,0,0"/>-->
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!--grid-->
+        <Grid
+            RelativePanel.RightOf="lsvLista"
+            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.AlignBottomWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--#region nombres de campo-->
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Nombre:"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Apellidos:"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                />
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Fecha de Nacimiento:"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                TextWrapping="Wrap"
+                />
+
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Direccion:"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                />
+
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="0"
+                Text="Telefono:"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                />
+
+            <TextBlock
+                Grid.Row="5"
+                Grid.Column="0"
+                Text="Departamento:"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                TextWrapping="Wrap"
+                />
+            <!--#endregion-->
+
+            <!--#region cajas para introducir datos-->
+
+            <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
+                
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                />
+            <!--Text="{Binding Path=personaSeleccionada.nombre, Mode=TwoWay}"-->
+
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                />
+            <!--Text="{Binding Path=personaSeleccionada.apellidos, Mode=TwoWay}"-->
+
+            <TextBox
+                Grid.Row="2"
+                Grid.Column="1"
+                
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                />
+            <!--Text="{Binding Path=personaSeleccionada.fechaNacimiento, Mode=TwoWay}"-->
+
+            <TextBox
+                Grid.Row="3"
+                Grid.Column="1"
+                
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                />
+            <!--Text="{Binding Path=personaSeleccionada.direccion, Mode=TwoWay}"-->
+
+            <TextBox
+                Grid.Row="4"
+                Grid.Column="1"
+                
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                />
+            <!--Text="{Binding Path=personaSeleccionada.telefono, Mode=TwoWay}"-->
+
+            <!--#endregion-->
+
+            <!--https://www.codeproject.com/Articles/301678/Step-by-Step-WPF-Data-Binding-with-Comboboxes-->
+            <!--<ComboBox
+                Name="cbxNombreDepartamento"
+                Grid.Row="5"
+                Grid.Column="1"
+                VerticalAlignment="Bottom"
+                ItemsSource="{Binding listadoDepartamentos}"
+                DisplayMemberPath="nombreDepartamento"
+                SelectedValuePath="idDepartamento"
+                SelectedValue="{Binding personaSeleccionada.idDepartamento, Mode=TwoWay}"
+                />-->
+
+            <Button 
+                Name="btnGuardar"
+                Grid.Row="6"
+                Grid.Column="0"
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                Content="GUARDAR"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="30"
+                
+                Background="CornflowerBlue"
+                Foreground="White"
+                BorderBrush="Black"
+                />
+            <!--Click="btnGuardar_Click"-->
+        </Grid>
+
+
+    </RelativePanel>
+</Page>
