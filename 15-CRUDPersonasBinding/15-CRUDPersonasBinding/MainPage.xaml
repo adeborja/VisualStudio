@@ -106,7 +106,7 @@
             <TextBlock
                 Grid.Row="5"
                 Grid.Column="0"
-                Text="DepartamentoSS:"
+                Text="Departamento:"
                 FontSize="20"
                 VerticalAlignment="Bottom"
                 TextWrapping="Wrap"

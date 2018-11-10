@@ -95,11 +95,12 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
         public MainPageViewModel()
         {
             clsListadoPersonas_BL listadoPersonas = new clsListadoPersonas_BL();
+            clsListadoDepartamentos_BL listadoDepartamentos = new clsListadoDepartamentos_BL();
 
             //Cargar el listado de personas
             _listadoDePersonas = listadoPersonas.listadoCompletoPersonas_BL();
 
-            //_listadoDepartamentos = clsListadoDeDepartamentos.listadoCompletoDepartamentos();
+            _listadoDepartamentos = listadoDepartamentos.listadoCompletoPersonas_BL();
         }
 
         #endregion

@@ -13,12 +13,12 @@ namespace _15_CRUDPersonasBinding_DAL.Listados
     {
         public List<clsDepartamento> listadoCompletoDepartamentos_DAL()
         {
-            List<clsDepartamento> lista = null;
+            List<clsDepartamento> lista = new List<clsDepartamento>();
 
             SqlConnection miConexion = null;
             SqlDataReader miLector = null;
             SqlCommand miComando = new SqlCommand();
-            clsMyConnection gestoraConexion = null;
+            clsMyConnection gestoraConexion = new clsMyConnection();
             clsDepartamento departamento = null;
 
             try
