@@ -107,6 +107,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Conexion\clsMyConnection.cs" />
+    <Compile Include="Listados\clsListadoDepartamentos_DAL.cs" />
     <Compile Include="Listados\clsListadoPersonas_DAL.cs" />
     <Compile Include="Manejadoras\clsManejadoraPersona_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

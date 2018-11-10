@@ -1,5 +1,5 @@
-﻿using _15_CRUDPersonasBinding_Entidades;
-using _15_CRUDPersonasBinding_Entidades.Conexion;
+﻿using _15_CRUDPersonasBinding_DAL.Conexion;
+using _15_CRUDPersonasBinding_Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;

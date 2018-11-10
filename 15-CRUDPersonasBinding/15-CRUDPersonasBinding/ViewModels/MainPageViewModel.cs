@@ -1,11 +1,13 @@
-﻿using System;
+﻿using _15_CRUDPersonasBinding_BL.Listados;
+using _15_CRUDPersonasBinding_Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _15_CRUDPersonasBinding_Entidades.ViewModels
+namespace _15_CRUDPersonasBinding_UI.ViewModels
 {
     class MainPageViewModel : INotifyPropertyChanged
     {
@@ -92,8 +94,10 @@ namespace _15_CRUDPersonasBinding_Entidades.ViewModels
 
         public MainPageViewModel()
         {
+            clsListadoPersonas_BL listadoPersonas = new clsListadoPersonas_BL();
+
             //Cargar el listado de personas
-            //_listadoDePersonas = clsListadoPersonas.getListado();
+            _listadoDePersonas = listadoPersonas.listadoCompletoPersonas_BL();
 
             //_listadoDepartamentos = clsListadoDeDepartamentos.listadoCompletoDepartamentos();
         }

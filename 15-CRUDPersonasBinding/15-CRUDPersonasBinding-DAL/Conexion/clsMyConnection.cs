@@ -19,7 +19,7 @@ using System.Linq;
 //
 
 
-namespace _15_CRUDPersonasBinding_Entidades.Conexion
+namespace _15_CRUDPersonasBinding_DAL.Conexion
 {
     public class clsMyConnection
     {

@@ -1,11 +1,11 @@
 ﻿using _15_CRUDPersonasBinding_Entidades;
-using _15_CRUDPersonasBinding_Entidades.Conexion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using _15_CRUDPersonasBinding_DAL.Conexion;
 
 namespace _15_CRUDPersonasBinding_DAL.Listados
 {
@@ -30,8 +30,7 @@ namespace _15_CRUDPersonasBinding_DAL.Listados
                 miConexion = gestoraConexion.getConnection();
 
                 //Definir los parametros del comando
-                miComando.CommandText = "SELECT IDPersona, nombrePersona, apellidosPersona, fechaNacimiento," +
-                    "telefono, direccion, IDDepartamento FROM Personas"; //cambiar el asterisco
+                miComando.CommandText = "SELECT IDPersona, nombrePersona, apellidosPersona, fechaNacimiento, telefono, direccion, IDDepartamento FROM Personas";
 
                 //Definir la conexion
                 miComando.Connection = miConexion;
