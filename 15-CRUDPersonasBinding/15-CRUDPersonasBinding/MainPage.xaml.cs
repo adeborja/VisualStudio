@@ -1,4 +1,6 @@
-﻿using System;
+﻿using _15_CRUDPersonasBinding_BL.Manejadoras;
+using _15_CRUDPersonasBinding_Entidades;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using _15_CRUDPersonasBinding_UI.ViewModels;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0xc0a
 
@@ -25,6 +28,21 @@ namespace _15_CRUDPersonasBinding_UI
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

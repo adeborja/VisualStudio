@@ -18,104 +18,178 @@
     <RelativePanel>
         <!--ponemos twoway para que la propiedad personaSeleccionada del viewmodel se actualice-->
 
-        <!--listview-->
-        <ListView Name="lsvLista" 
+        <Grid
+            Margin="15"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignBottomWithPanel="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="{Binding ElementName=rpnBotones, Path=Width, Mode=TwoWay}"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--listview-->
+            <ListView Name="lsvLista" 
+                      Grid.Row="0"
+                      Grid.Column="0"
                   ItemsSource="{Binding listadoDePersonas}"
                   SelectedItem="{Binding personaSeleccionada, Mode=TwoWay}"
                   RelativePanel.AlignTopWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True"
-                  RelativePanel.AlignBottomWithPanel="True"
                   MinWidth="150"
+                  Background="AliceBlue"
+                      ScrollViewer.IsVerticalRailEnabled="True"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.VerticalScrollMode="Auto"
                   >
-            
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Path=apellidos}"/>
-                        <TextBlock Text=","/>
-                        <TextBlock Text="{Binding Path=nombre}" Margin="5,0,0,0"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                <!--RelativePanel.AlignBottomWithPanel="True"-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=apellidos}"/>
+                            <TextBlock Text=","/>
+                            <TextBlock Text="{Binding Path=nombre}" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-        <!--grid-->
-        <Grid
-            RelativePanel.RightOf="lsvLista"
-            RelativePanel.AlignTopWithPanel="True"
-            RelativePanel.AlignBottomWithPanel="True"
-            RelativePanel.AlignRightWithPanel="True"
-            >
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
+            <RelativePanel
+                Name="rpnBotones"
+                Grid.Row="1"
+                Grid.Column="0"
+                Height="Auto"
+                RelativePanel.LeftOf="grdCampos"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignBottomWithPanel="True"
+                Background="AntiqueWhite"
+                >
+                <StackPanel 
+                    Name="abbAgregar"
+                    Orientation="Vertical"
+                    Grid.Row="1"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignTopWithPanel="True"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    ToolTipService.ToolTip="Crear"
+                    VerticalAlignment="Center"
+                    >
+                    <AppBarButton
+                        Name="btnAdd"
+                        Icon="Add"
+                        Click="btnAdd_Click"
+                        />
+                </StackPanel>
+                <StackPanel 
+                    Name="abbEliminar"
+                    Orientation="Vertical"
+                    Grid.Row="1"
+                    RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignTopWithPanel="True"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    ToolTipService.ToolTip="Eliminar"
+                    VerticalAlignment="Center"
+                    >
+                    <AppBarButton 
+                        Name="btnDelete"
+                        Icon="Delete"
+                        Click="btnDelete_Click"
+                        />
+                </StackPanel>
+            </RelativePanel>
 
-            <!--#region nombres de campo-->
-            <TextBlock
+            <!--grid-->
+            <Grid
+                Grid.Row="0"
+                Grid.Column="1"
+                Grid.RowSpan="2"
+                Name="grdCampos"
+                RelativePanel.RightOf="lsvLista"
+                RelativePanel.AlignTopWithPanel="True"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--#region nombres de campo-->
+                <TextBlock
                 Grid.Row="0"
                 Grid.Column="0"
                 Text="Nombre:"
                 FontSize="20"
                 VerticalAlignment="Bottom"
+                    Margin="15,0,0,0"
                 />
 
-            <TextBlock
+                <TextBlock
                 Grid.Row="1"
                 Grid.Column="0"
                 Text="Apellidos:"
                 FontSize="20"
                 VerticalAlignment="Bottom"
+                    Margin="15,0,0,0"
                 />
 
-            <TextBlock
+                <TextBlock
                 Grid.Row="2"
                 Grid.Column="0"
                 Text="Fecha de Nacimiento:"
                 FontSize="20"
                 VerticalAlignment="Bottom"
                 TextWrapping="Wrap"
+                    Margin="15,0,0,0"
                 />
 
-            <TextBlock
+                <TextBlock
                 Grid.Row="3"
                 Grid.Column="0"
                 Text="Direccion:"
                 FontSize="20"
                 VerticalAlignment="Bottom"
+                    Margin="15,0,0,0"
                 />
 
-            <TextBlock
+                <TextBlock
                 Grid.Row="4"
                 Grid.Column="0"
                 Text="Telefono:"
                 FontSize="20"
                 VerticalAlignment="Bottom"
+                    Margin="15,0,0,0"
                 />
 
-            <TextBlock
+                <TextBlock
                 Grid.Row="5"
                 Grid.Column="0"
                 Text="Departamento:"
                 FontSize="20"
                 VerticalAlignment="Bottom"
                 TextWrapping="Wrap"
+                    Margin="15,0,0,0"
                 />
-            <!--#endregion-->
+                <!--#endregion-->
 
-            <!--#region cajas para introducir datos-->
+                <!--#region cajas para introducir datos-->
 
-            <TextBox
+                <TextBox
                 Grid.Row="0"
                 Grid.Column="1"
                 Text="{Binding Path=personaSeleccionada.nombre, Mode=TwoWay}"
@@ -123,9 +197,9 @@
                 VerticalAlignment="Bottom"
                 Margin="0,0,30,0"
                 />
-            
 
-            <TextBox
+
+                <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
                 Text="{Binding Path=personaSeleccionada.apellidos, Mode=TwoWay}"
@@ -133,9 +207,9 @@
                 VerticalAlignment="Bottom"
                 Margin="0,0,30,0"
                 />
-            
 
-            <TextBox
+
+                <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
                 Text="{Binding Path=personaSeleccionada.fechaNacimiento, Mode=TwoWay}"
@@ -143,9 +217,9 @@
                 VerticalAlignment="Bottom"
                 Margin="0,0,30,0"
                 />
-            
 
-            <TextBox
+
+                <TextBox
                 Grid.Row="3"
                 Grid.Column="1"
                 Text="{Binding Path=personaSeleccionada.direccion, Mode=TwoWay}"
@@ -153,9 +227,9 @@
                 VerticalAlignment="Bottom"
                 Margin="0,0,30,0"
                 />
-            
 
-            <TextBox
+
+                <TextBox
                 Grid.Row="4"
                 Grid.Column="1"
                 Text="{Binding Path=personaSeleccionada.telefono, Mode=TwoWay}"
@@ -163,12 +237,12 @@
                 VerticalAlignment="Bottom"
                 Margin="0,0,30,0"
                 />
-            
 
-            <!--#endregion-->
 
-            <!--https://www.codeproject.com/Articles/301678/Step-by-Step-WPF-Data-Binding-with-Comboboxes-->
-            <ComboBox
+                <!--#endregion-->
+
+                <!--https://www.codeproject.com/Articles/301678/Step-by-Step-WPF-Data-Binding-with-Comboboxes-->
+                <ComboBox
                 Name="cbxNombreDepartamento"
                 Grid.Row="5"
                 Grid.Column="1"
@@ -179,7 +253,7 @@
                 SelectedValue="{Binding personaSeleccionada.idDepartamento, Mode=TwoWay}"
                 />
 
-            <Button 
+                <Button 
                 Name="btnGuardar"
                 Grid.Row="6"
                 Grid.Column="0"
@@ -194,9 +268,10 @@
                 Foreground="White"
                 BorderBrush="Black"
                 />
-            <!--Click="btnGuardar_Click"-->
-        </Grid>
+                <!--Click="{Binding guardarPersonaEditada, Mode=TwoWay}"-->
+            </Grid>
 
+        </Grid>
 
     </RelativePanel>
 </Page>

@@ -1,4 +1,5 @@
 ﻿using _15_CRUDPersonasBinding_BL.Listados;
+using _15_CRUDPersonasBinding_BL.Manejadoras;
 using _15_CRUDPersonasBinding_Entidades;
 using System;
 using System.Collections.Generic;
@@ -104,5 +105,24 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
         }
 
         #endregion
+
+        public int guardarPersonaEditada()
+        {
+            int filasAfectadas = -1;
+            clsManejadoraPersona_BL manejadora = new clsManejadoraPersona_BL();
+
+            //if (o.GetType() == typeof(clsPersona))
+            //{
+            //    clsPersona p = (clsPersona)o;
+
+            //    filasAfectadas = manejadora.editarPersona_BL(o);
+            //}
+
+            //filasAfectadas = manejadora.editarPersona_BL(personaSeleccionada);
+
+            
+
+            return filasAfectadas;
+        }
     }
 }
