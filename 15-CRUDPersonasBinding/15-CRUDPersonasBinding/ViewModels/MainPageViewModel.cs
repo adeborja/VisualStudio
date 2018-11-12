@@ -22,6 +22,8 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
 
         private DelegateCommand _eliminarCommand;
         private DelegateCommand _actualizarListadoCommand;
+        private DelegateCommand _anadirNuevoCommand;
+        private DelegateCommand _guardarPersonaCommand;
 
         //public event PropertyChangedEventHandler PropertyChanged;
 
@@ -81,10 +83,11 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
             set
             {
                 _departamentoSeleccionado = value;
-                NotifyPropertyChanged("departamentoSeleccionado");
+                //NotifyPropertyChanged("departamentoSeleccionado");
             }
         }
 
+        #region eliminarCommand
 
         public DelegateCommand eliminarCommand
         {
@@ -95,29 +98,7 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
             }
         }
 
-        public DelegateCommand actualizarListadoCommand
-        {
-            get
-            {
-                _actualizarListadoCommand = new DelegateCommand(actualizarListadoCommand_Executed);
-                return _actualizarListadoCommand;
-            }
-        }
-
-        private void actualizarListadoCommand_Executed()
-        {
-            //Actualizamos la lista de personas
-            clsListadoPersonas_BL listadoPersonas = new clsListadoPersonas_BL();
-
-            //Cargar el listado de personas
-            _listadoDePersonas = listadoPersonas.listadoCompletoPersonas_BL();
-            NotifyPropertyChanged("listadoDePersonas"); //propiedad en linea 30
-        }
-
-
-
-
-
+        
         /// <summary>
         /// Funcion para eliminar una persona de la base de datos
         /// </summary>
@@ -143,6 +124,7 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
             int filasAfectadas = -1;
             clsManejadoraPersona_BL manejadoraBL = new clsManejadoraPersona_BL();
             ContentDialog confirmarBorrado = new ContentDialog();
+            ContentDialog seHaBorrado = new ContentDialog();
             ContentDialogResult resultado;
 
             //Definir las propiedades del popup
@@ -165,13 +147,19 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
                     //_listadoDePersonas = listadoPersonas.listadoCompletoPersonas_BL();
                     //NotifyPropertyChanged("listadoDePersonas"); //propiedad en linea 30
                     actualizarListadoCommand_Executed();
+
+                    seHaBorrado.Content = "La persona ha sido borrada";
+                    seHaBorrado.PrimaryButtonText = "Aceptar";
+
+
                 }
                 catch(Exception e)
                 {
-                    //TODO lo mismo del anterior
+                    confirmarBorrado.Title = "Error";
+                    confirmarBorrado.Content = "Se ha producido un error";
+                    confirmarBorrado.PrimaryButtonText = "Aceptar";
                 }
             }
-            
         }
 
 
@@ -190,6 +178,126 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
 
             return sePuedeEliminar;
         }
+
+        #endregion
+
+        #region actualizarListadoCommand
+
+        public DelegateCommand actualizarListadoCommand
+        {
+            get
+            {
+                _actualizarListadoCommand = new DelegateCommand(actualizarListadoCommand_Executed);
+                return _actualizarListadoCommand;
+            }
+        }
+
+        private void actualizarListadoCommand_Executed()
+        {
+            //Actualizamos la lista de personas
+            clsListadoPersonas_BL listadoPersonas = new clsListadoPersonas_BL();
+
+            //Cargar el listado de personas
+            _listadoDePersonas = listadoPersonas.listadoCompletoPersonas_BL();
+            NotifyPropertyChanged("listadoDePersonas"); //propiedad en linea 30
+        }
+
+        #endregion
+
+        #region guardarPersonaCommand
+
+        public DelegateCommand guardarPersonaCommand
+        {
+            get
+            {
+                _guardarPersonaCommand = new DelegateCommand(guardarPersonaCommand_Executed);
+                return _guardarPersonaCommand;
+            }
+        }
+
+        private async void guardarPersonaCommand_Executed()
+        {
+            int filasAfectadas = - 1;
+            clsManejadoraPersona_BL manejadoraBL = new clsManejadoraPersona_BL();
+            ContentDialog mensajePopUp = new ContentDialog();
+
+            try
+            {
+                if(personaSeleccionada.idPersona==0)
+                {
+                    filasAfectadas = manejadoraBL.crearPersona_BL(personaSeleccionada);
+
+                    //actualizarListadoCommand_Executed();
+
+                    if (filasAfectadas == 1)
+                    {
+                        actualizarListadoCommand_Executed();
+
+                        mensajePopUp.Title = "Creacion exitosa";
+                        mensajePopUp.Content = "La persona ha sido creada correctamente";
+                        mensajePopUp.PrimaryButtonText = "Aceptar";
+                    }
+                    else
+                    {
+                        actualizarListadoCommand_Executed();
+
+                        mensajePopUp.Title = "Creacion fallida";
+                        mensajePopUp.Content = "La persona no ha podido ser creada";
+                        mensajePopUp.PrimaryButtonText = "Aceptar :(";
+                    }
+                }
+                else
+                {
+                    filasAfectadas = manejadoraBL.editarPersona_BL(personaSeleccionada);
+
+                    //actualizarListadoCommand_Executed();
+
+                    if (filasAfectadas == 1)
+                    {
+                        mensajePopUp.Title = "Creacion exitosa";
+                        mensajePopUp.Content = "La persona ha sido editada correctamente";
+                        mensajePopUp.PrimaryButtonText = "Aceptar";
+                    }
+                    else
+                    {
+                        mensajePopUp.Title = "Creacion fallida";
+                        mensajePopUp.Content = "La persona no ha podido ser creada";
+                        mensajePopUp.PrimaryButtonText = "Aceptar :(";
+                    }
+                }
+
+                await mensajePopUp.ShowAsync();
+
+                
+            }
+            catch(Exception e)
+            {
+                mensajePopUp.Title = "Error";
+                mensajePopUp.Content = "Se ha producido un error";
+                mensajePopUp.PrimaryButtonText = "Aceptar";
+            }
+        }
+
+        #endregion
+
+        #region anadirNuevoCommand
+
+        public DelegateCommand anadirNuevoCommand
+        {
+            get
+            {
+                _anadirNuevoCommand = new DelegateCommand(anadirNuevoCommand_Execute);
+                return _anadirNuevoCommand;
+            }
+        }
+
+        private void anadirNuevoCommand_Execute()
+        {
+            personaSeleccionada = new clsPersona();
+        }
+
+        #endregion
+
 
         #endregion
 

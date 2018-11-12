@@ -29,20 +29,5 @@ namespace _15_CRUDPersonasBinding_UI
         {
             this.InitializeComponent();
         }
-
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

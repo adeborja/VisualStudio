@@ -18,10 +18,47 @@
     <RelativePanel>
         <!--ponemos twoway para que la propiedad personaSeleccionada del viewmodel se actualice-->
 
+        <StackPanel
+            Name="spBotones"
+            Orientation="Horizontal"
+            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            VerticalAlignment="Center"
+            Background="AntiqueWhite"
+            >
+            <AppBarButton
+                        Name="btnAdd"
+                        Icon="Add"
+                Command="{Binding Path=anadirNuevoCommand}"
+                Label="Añadir Nuevo"
+                        />
+            <AppBarButton 
+                        Name="btnDelete"
+                        Icon="Delete"
+                        Command="{Binding Path=eliminarCommand}"
+                Label="Borrar"
+                        />
+            <AppBarButton
+                        Name="btnActualizarListado"
+                        Icon="Refresh"
+                        Command="{Binding Path=actualizarListadoCommand}"
+                Label="Actualizar Lista"
+                        />
+            <AppBarButton
+                        Name="btnGuardar2"
+                        Icon="Save"
+                        Command="{Binding Path=guardarPersonaCommand}"
+                Label="Guardar"
+                
+                        />
+
+        </StackPanel>
+        
         <Grid
             Margin="15"
             RelativePanel.AlignLeftWithPanel="True"
-            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.Below="spBotones"
             RelativePanel.AlignRightWithPanel="True"
             RelativePanel.AlignBottomWithPanel="True">
             <Grid.RowDefinitions>
@@ -37,6 +74,7 @@
             <ListView Name="lsvLista" 
                       Grid.Row="0"
                       Grid.Column="0"
+                      Grid.RowSpan="2"
                   ItemsSource="{Binding listadoDePersonas}"
                   SelectedItem="{Binding personaSeleccionada, Mode=TwoWay}"
                   RelativePanel.AlignTopWithPanel="True"
@@ -59,7 +97,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <RelativePanel
+            <!--<RelativePanel
                 Name="rpnBotones"
                 Grid.Row="1"
                 Grid.Column="0"
@@ -70,7 +108,7 @@
                 Background="AntiqueWhite"
                 >
                 <StackPanel 
-                    Name="spBotones"
+                    Name="spBotones2"
                     Orientation="Horizontal"
                     Grid.Row="1"
                     RelativePanel.AlignLeftWithPanel="True"
@@ -80,23 +118,23 @@
                     VerticalAlignment="Center"
                     >
                     <AppBarButton
-                        Name="btnAdd"
+                        Name="btnAdd2"
                         Icon="Add"
                         Click="btnAdd_Click"
                         />
                     <AppBarButton 
-                        Name="btnDelete"
+                        Name="btnDelete2"
                         Icon="Delete"
                         Command="{Binding Path=eliminarCommand}"
                         />
                     <AppBarButton
-                        Name="btnActualizarListado"
+                        Name="btnActualizarListado2"
                         Icon="Refresh"
                         Command="{Binding Path=actualizarListadoCommand}"
                         />
                 </StackPanel>
                 
-            </RelativePanel>
+            </RelativePanel>-->
 
             <!--grid-->
             <Grid
@@ -248,7 +286,7 @@
                 SelectedValue="{Binding personaSeleccionada.idDepartamento, Mode=TwoWay}"
                 />
 
-                <Button 
+                <!--<Button 
                 Name="btnGuardar"
                 Grid.Row="6"
                 Grid.Column="0"
@@ -262,7 +300,7 @@
                 Background="CornflowerBlue"
                 Foreground="White"
                 BorderBrush="Black"
-                />
+                />-->
                 <!--Click="{Binding guardarPersonaEditada, Mode=TwoWay}"-->
             </Grid>
 
