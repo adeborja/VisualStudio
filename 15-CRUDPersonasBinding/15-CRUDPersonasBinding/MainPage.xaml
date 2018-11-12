@@ -70,8 +70,8 @@
                 Background="AntiqueWhite"
                 >
                 <StackPanel 
-                    Name="abbAgregar"
-                    Orientation="Vertical"
+                    Name="spBotones"
+                    Orientation="Horizontal"
                     Grid.Row="1"
                     RelativePanel.AlignLeftWithPanel="True"
                     RelativePanel.AlignTopWithPanel="True"
@@ -84,23 +84,18 @@
                         Icon="Add"
                         Click="btnAdd_Click"
                         />
-                </StackPanel>
-                <StackPanel 
-                    Name="abbEliminar"
-                    Orientation="Vertical"
-                    Grid.Row="1"
-                    RelativePanel.AlignRightWithPanel="True"
-                    RelativePanel.AlignTopWithPanel="True"
-                    RelativePanel.AlignBottomWithPanel="True"
-                    ToolTipService.ToolTip="Eliminar"
-                    VerticalAlignment="Center"
-                    >
                     <AppBarButton 
                         Name="btnDelete"
                         Icon="Delete"
-                        Click="btnDelete_Click"
+                        Command="{Binding Path=eliminarCommand}"
+                        />
+                    <AppBarButton
+                        Name="btnActualizarListado"
+                        Icon="Refresh"
+                        Command="{Binding Path=actualizarListadoCommand}"
                         />
                 </StackPanel>
+                
             </RelativePanel>
 
             <!--grid-->
