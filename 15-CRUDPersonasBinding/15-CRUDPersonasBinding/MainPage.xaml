@@ -251,6 +251,13 @@
                 Margin="0,0,30,0"
                 />
 
+                <!-- Meter un datepicker para la fecha -->
+                <DatePicker
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    VerticalAlignment="Top"
+                    Date="{Binding Path=personaSeleccionada.fechaNacimiento, Mode=TwoWay}"
+                    />
 
                 <TextBox
                 Grid.Row="3"
