@@ -275,6 +275,7 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
                 mensajePopUp.Title = "Error";
                 mensajePopUp.Content = "Se ha producido un error";
                 mensajePopUp.PrimaryButtonText = "Aceptar";
+                await mensajePopUp.ShowAsync();
             }
         }
 
@@ -329,7 +330,7 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
 
         #endregion
 
-        public int guardarPersonaEditada()
+        /*public int guardarPersonaEditada()
         {
             int filasAfectadas = -1;
             clsManejadoraPersona_BL manejadora = new clsManejadoraPersona_BL();
@@ -346,6 +347,6 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
             
 
             return filasAfectadas;
-        }
+        }*/
     }
 }

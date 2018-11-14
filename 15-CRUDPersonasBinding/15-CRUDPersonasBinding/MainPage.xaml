@@ -257,6 +257,7 @@
                     Grid.Column="1"
                     VerticalAlignment="Top"
                     Date="{Binding Path=personaSeleccionada.fechaNacimiento, Mode=TwoWay}"
+                    
                     />
 
                 <TextBox
