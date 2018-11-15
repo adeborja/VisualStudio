@@ -57,6 +57,7 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
 
                 //Llamamos a CanExecute de eliminar para que compruebe si habilita el comando
                 _eliminarCommand.RaiseCanExecuteChanged();
+                _guardarPersonaCommand.RaiseCanExecuteChanged();
                 NotifyPropertyChanged("personaSeleccionada");
             }
         }
@@ -150,7 +151,7 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
 
                     seHaBorrado.Content = "La persona ha sido borrada";
                     seHaBorrado.PrimaryButtonText = "Aceptar";
-
+                    await seHaBorrado.ShowAsync();
 
                 }
                 catch(Exception e)
@@ -158,6 +159,7 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
                     confirmarBorrado.Title = "Error";
                     confirmarBorrado.Content = "Se ha producido un error";
                     confirmarBorrado.PrimaryButtonText = "Aceptar";
+                    await confirmarBorrado.ShowAsync();
                 }
             }
         }
@@ -210,9 +212,25 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
         {
             get
             {
-                _guardarPersonaCommand = new DelegateCommand(guardarPersonaCommand_Executed);
+                _guardarPersonaCommand = new DelegateCommand(guardarPersonaCommand_Executed, guardarPersonaCommand_CanExecute);
                 return _guardarPersonaCommand;
             }
+        }
+
+        /// <summary>
+        /// Funcion que devuelve un logico para habilitar o deshabilitar los controles bindeados al comando guardar
+        /// </summary>
+        /// <returns></returns>
+        private bool guardarPersonaCommand_CanExecute()
+        {
+            bool sePuedeEliminar = false;
+
+            if (personaSeleccionada != null)
+            {
+                sePuedeEliminar = true;
+            }
+
+            return sePuedeEliminar;
         }
 
         private async void guardarPersonaCommand_Executed()

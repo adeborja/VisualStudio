@@ -52,6 +52,22 @@
                 Label="Guardar"
                 
                         />
+            <Button
+                VerticalAlignment="Center"
+                Content="Menu Flyout"
+                >
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Nuevo" Command="{Binding Path=anadirNuevoCommand}" Icon="Add"/>
+                        <MenuFlyoutItem Text="Actualizar" Command="{Binding Path=actualizarListadoCommand}" Icon="Refresh"/>
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutSubItem Text="Acciones">
+                            <MenuFlyoutItem Text="Guardar" Command="{Binding Path=guardarPersonaCommand}" Icon="Save"/>
+                            <MenuFlyoutItem Text="Borrar" Command="{Binding Path=eliminarCommand}" Icon="Delete"/>
+                        </MenuFlyoutSubItem>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
 
         </StackPanel>
         
@@ -85,6 +101,39 @@
                       ScrollViewer.VerticalScrollBarVisibility="Auto"
                       ScrollViewer.VerticalScrollMode="Auto"
                   >
+
+                <!--https://stackoverflow.com/questions/37656847/how-to-add-context-menu-in-windows-10-uwp-on-listview-item-->
+                
+                <!--<ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Holding="Grid_Holding" VerticalAlignment="Stretch">
+                            <FlyoutBase.AttachedFlyout>
+                                <MenuFlyout>
+                                    <MenuFlyoutItem Text="Edit"/>
+                                    <MenuFlyoutItem Text="Delete"/>
+                                    <MenuFlyoutSubItem Text="OtherItems">
+                                        <MenuFlyoutItem Text="Inside1"/>
+                                        <MenuFlyoutItem Text="Inside2"/>
+                                        <MenuFlyoutItem Text="Inside3"/>
+                                    </MenuFlyoutSubItem>
+                                </MenuFlyout>
+                            </FlyoutBase.AttachedFlyout>
+                            <TextBlock Text="{Binding}" VerticalAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>-->
+
+                <!--https://www.c-sharpcorner.com/article/how-to-create-context-menu-using-list-view-and-manuflyout-controls-in-universal/-->
+                <ListView.Resources>
+                    <MenuFlyout x:Key="mfo">
+                        <MenuFlyoutItem Text="Uno"/>
+                    </MenuFlyout>
+                </ListView.Resources>
+
+                <!--https://codedocu.com/Details?d=1536&a=9&f=191&l=0&v=d-->
+                <!--https://www.reddit.com/r/csharp/comments/3a34xi/beginner_question_how_to_implement_a_context_menu/-->
+
+
                 <!--RelativePanel.AlignBottomWithPanel="True"-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -225,7 +274,7 @@
                 <TextBox
                 Grid.Row="0"
                 Grid.Column="1"
-                Text="{Binding Path=personaSeleccionada.nombre, Mode=TwoWay}"
+                Text="{Binding Path=personaSeleccionada.nombre, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 FontSize="20"
                 VerticalAlignment="Bottom"
                 Margin="0,0,30,0"
@@ -235,7 +284,7 @@
                 <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
-                Text="{Binding Path=personaSeleccionada.apellidos, Mode=TwoWay}"
+                Text="{Binding Path=personaSeleccionada.apellidos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 FontSize="20"
                 VerticalAlignment="Bottom"
                 Margin="0,0,30,0"
@@ -245,25 +294,25 @@
                 <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
-                Text="{Binding Path=personaSeleccionada.fechaNacimiento, Mode=TwoWay}"
+                Text="{Binding Path=personaSeleccionada.fechaNacimiento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 FontSize="20"
                 VerticalAlignment="Bottom"
                 Margin="0,0,30,0"
                 />
 
                 <!-- Meter un datepicker para la fecha -->
-                <DatePicker
+                <!--<DatePicker
                     Grid.Row="2"
                     Grid.Column="1"
                     VerticalAlignment="Top"
                     Date="{Binding Path=personaSeleccionada.fechaNacimiento, Mode=TwoWay}"
                     
-                    />
+                    />-->
 
                 <TextBox
                 Grid.Row="3"
                 Grid.Column="1"
-                Text="{Binding Path=personaSeleccionada.direccion, Mode=TwoWay}"
+                Text="{Binding Path=personaSeleccionada.direccion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 FontSize="20"
                 VerticalAlignment="Bottom"
                 Margin="0,0,30,0"
@@ -273,7 +322,7 @@
                 <TextBox
                 Grid.Row="4"
                 Grid.Column="1"
-                Text="{Binding Path=personaSeleccionada.telefono, Mode=TwoWay}"
+                Text="{Binding Path=personaSeleccionada.telefono, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 FontSize="20"
                 VerticalAlignment="Bottom"
                 Margin="0,0,30,0"
