@@ -29,5 +29,19 @@ namespace _15_CRUDPersonasBinding_UI
         {
             this.InitializeComponent();
         }
+
+        private void lsvLista_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            ListView listView = (ListView)sender;
+
+            miFlyoutListado.ShowAt(listView, e.GetPosition(listView));
+            clsPersona personaSeleccionada = (clsPersona)((FrameworkElement)e.OriginalSource).DataContext;
+            this.lsvLista.SelectedItem = personaSeleccionada;
+        }
+
+        private void lsvListaBusqueda_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+
+        }
     }
 }

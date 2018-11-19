@@ -25,6 +25,13 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
         private DelegateCommand _anadirNuevoCommand;
         private DelegateCommand _guardarPersonaCommand;
 
+        private List<clsPersona> _listadoDePersonasBusqueda;
+        private String _textoBusqueda;
+        private DelegateCommand _rellenarListadoBusquedaCommand;
+
+        private String _listadoDePersonasVisible;
+        private String _listadoDePersonasBusquedaVisible;
+
         //public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
@@ -249,7 +256,7 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
 
                     if (filasAfectadas == 1)
                     {
-                        actualizarListadoCommand_Executed();
+                        //actualizarListadoCommand_Executed();
 
                         mensajePopUp.Title = "Creacion exitosa";
                         mensajePopUp.Content = "La persona ha sido creada correctamente";
@@ -257,7 +264,7 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
                     }
                     else
                     {
-                        actualizarListadoCommand_Executed();
+                        //actualizarListadoCommand_Executed();
 
                         mensajePopUp.Title = "Creacion fallida";
                         mensajePopUp.Content = "La persona no ha podido ser creada";
@@ -283,6 +290,8 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
                         mensajePopUp.PrimaryButtonText = "Aceptar :(";
                     }
                 }
+
+                actualizarListadoCommand_Executed();
 
                 await mensajePopUp.ShowAsync();
 
@@ -332,6 +341,91 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
 
 
 
+        #region listadoDePersonasBusqueda
+
+        public List<clsPersona> listadoDePersonasBusqueda
+        {
+            get
+            {
+                return _listadoDePersonasBusqueda;
+            }
+
+            set
+            {
+                _listadoDePersonasBusqueda = value;
+            }
+        }
+
+        #endregion
+
+
+        #region textoBusqueda
+
+        public String textoBusqueda
+        {
+            get
+            {
+                return _textoBusqueda;
+            }
+
+            set
+            {
+                _textoBusqueda = value;
+            }
+        }
+
+        #endregion
+
+        public String listadoDePersonasVisible
+        {
+            get
+            {
+                return _listadoDePersonasVisible;
+            }
+
+            set
+            {
+                _listadoDePersonasVisible = value;
+                NotifyPropertyChanged("listadoDePersonasVisible");
+            }
+        }
+
+        public String listadoDePersonasBusquedaVisible
+        {
+            get
+            {
+                return _listadoDePersonasBusquedaVisible;
+            }
+
+            set
+            {
+                _listadoDePersonasBusquedaVisible = value;
+                NotifyPropertyChanged("listadoDePersonasBusquedaVisible");
+            }
+        }
+
+
+
+        public DelegateCommand actualizarListadoBusquedaCommand
+        {
+            get
+            {
+                _rellenarListadoBusquedaCommand = new DelegateCommand(rellenarListadoBusquedaCommandCommand_Executed);
+                return _rellenarListadoBusquedaCommand;
+            }
+        }
+
+        private void rellenarListadoBusquedaCommandCommand_Executed()
+        {
+            //Actualizamos la lista de personas
+            clsListadoPersonas_BL listadoPersonas = new clsListadoPersonas_BL();
+
+            //Cargar el listado de personas que cumplan los criterios de busqueda
+            _listadoDePersonas = listadoPersonas.listadoPersonasBusquedaNombreApellidos_BL(_textoBusqueda); //TODO
+            NotifyPropertyChanged("listadoDePersonas");
+        }
+
+
         #region constructor por defecto
 
         public MainPageViewModel()
@@ -344,27 +438,13 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
             actualizarListadoCommand_Executed();
 
             _listadoDepartamentos = listadoDepartamentos.listadoCompletoPersonas_BL();
+
+            _listadoDePersonasBusquedaVisible = "Visible";
+            _listadoDePersonasVisible = "Collapsed";
         }
 
         #endregion
 
-        /*public int guardarPersonaEditada()
-        {
-            int filasAfectadas = -1;
-            clsManejadoraPersona_BL manejadora = new clsManejadoraPersona_BL();
-
-            //if (o.GetType() == typeof(clsPersona))
-            //{
-            //    clsPersona p = (clsPersona)o;
-
-            //    filasAfectadas = manejadora.editarPersona_BL(o);
-            //}
-
-            //filasAfectadas = manejadora.editarPersona_BL(personaSeleccionada);
-
-            
-
-            return filasAfectadas;
-        }*/
+        
     }
 }

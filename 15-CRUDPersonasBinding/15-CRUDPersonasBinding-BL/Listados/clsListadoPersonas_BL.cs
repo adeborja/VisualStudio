@@ -25,5 +25,22 @@ namespace _15_CRUDPersonasBinding_BL.Listados
 
             return lista;
         }
+
+
+        /// <summary>
+        /// Funcion que devuelve una lista de personas obtenidas de la capa DAL con condiciones
+        /// </summary>
+        /// <returns></returns>
+        public List<clsPersona> listadoPersonasBusquedaNombreApellidos_BL(String parametro)
+        {
+            List<clsPersona> lista = new List<clsPersona>();
+
+            //instanciar un objeto
+            clsListadoPersonas_DAL objeto = new clsListadoPersonas_DAL();
+
+            lista = objeto.listadoCompletoPersonas_DAL();
+
+            return lista;
+        }
     }
 }

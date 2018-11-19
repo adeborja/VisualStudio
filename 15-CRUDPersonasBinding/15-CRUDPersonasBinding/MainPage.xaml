@@ -29,16 +29,39 @@
         </muxcontrols:CommandBarFlyout>
     </Page.Resources>-->
 
-
+    
+    <!--Añadir visibility a los campos de la parte derecha para que no se vean cuando no hay una persona seleccionada-->
+    <!--En el viewmodel, meter un string que controle la visibilidad de los elementos y que cambie dentro de personaSeleccionada, asignando valor al atributo privado y notificando el cambio-->
 
     <RelativePanel>
         <!--ponemos twoway para que la propiedad personaSeleccionada del viewmodel se actualice-->
 
         <!--https://docs.microsoft.com/es-es/windows/uwp/design/controls-and-patterns/menus-->
         <!--<MenuBar>
-            
+            <MenuBarItem Title="File">
+                <MenuFlyoutSubItem Text="New">
+                    <MenuFlyoutItem Text="Plain Text Document"/>
+                    <MenuFlyoutItem Text="Rich Text Document"/>
+                    <MenuFlyoutItem Text="Other Formats..."/>
+                </MenuFlyoutSubItem>
+                <MenuFlyoutItem Text="Open..."/>
+                <MenuFlyoutItem Text="Save">
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Exit"/>
+            </MenuBarItem>
+
+            <MenuBarItem Title="Edit">
+                <MenuFlyoutItem Text="Undo"/>
+                <MenuFlyoutItem Text="Cut"/>
+                <MenuFlyoutItem Text="Copy"/>
+                <MenuFlyoutItem Text="Paste"/>
+            </MenuBarItem>
+
+            <MenuBarItem Title="Help">
+                <MenuFlyoutItem Text="About"/>
+            </MenuBarItem>
         </MenuBar>-->
-        
+
         <StackPanel
             Name="spBotones"
             Orientation="Horizontal"
@@ -73,7 +96,7 @@
                 Label="Guardar"
                 
                         />
-            <Button
+            <!--<Button
                 VerticalAlignment="Center"
                 Content="Menu Flyout"
                 >
@@ -88,6 +111,23 @@
                         </MenuFlyoutSubItem>
                     </MenuFlyout>
                 </Button.Flyout>
+            </Button>-->
+
+            <TextBox
+                Name="txbBuscar"
+                PlaceholderText="Buscar"
+                Height="30"
+                Width="100"
+                Text="{Binding Path=textoBusqueda, Mode=TwoWay}"
+                />
+            <Button
+                Name="btnBuscar"
+                Height="{Binding ElementName=txbBuscar, Path=Height}"
+                HorizontalAlignment="Right"
+                >
+                <TextBlock
+                    Text="&#xE71E;"
+                    FontFamily="Segoe MDL2 Assets"/>
             </Button>
 
         </StackPanel>
@@ -107,7 +147,7 @@
                 <ColumnDefinition Width="8*"/>
             </Grid.ColumnDefinitions>
 
-            <!--listview-->
+            <!--listview listadoDePersonas-->
             <ListView Name="lsvLista" 
                       Grid.Row="0"
                       Grid.Column="0"
@@ -121,14 +161,18 @@
                       ScrollViewer.IsVerticalRailEnabled="True"
                       ScrollViewer.VerticalScrollBarVisibility="Auto"
                       ScrollViewer.VerticalScrollMode="Auto"
+                      RightTapped="lsvLista_RightTapped" Visibility="{Binding Path=listadoDePersonasVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   >
 
                 
 
                 <!--https://www.c-sharpcorner.com/article/how-to-create-context-menu-using-list-view-and-manuflyout-controls-in-universal/-->
                 <ListView.Resources>
-                    <MenuFlyout x:Key="mfo">
-                        <MenuFlyoutItem Text="Uno"/>
+                    <MenuFlyout x:Name="miFlyoutListado">
+                        <MenuFlyout.Items>
+                            <MenuFlyoutItem Text="Guardar" Command="{Binding Path=guardarPersonaCommand}" Icon="Save"/>
+                            <MenuFlyoutItem Text="Borrar" Command="{Binding Path=eliminarCommand}" Icon="Delete"/>
+                        </MenuFlyout.Items>
                     </MenuFlyout>
                 </ListView.Resources>
 
@@ -149,7 +193,57 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            
+
+
+            <!--https://stackoverflow.com/questions/18138875/linq-expression-to-filter-an-a-list-of-entitys-collection-and-maintain-list-of-->
+            <!--listview listadoDePersonasBusqueda-->
+            <ListView Name="lsvListaBusqueda" 
+                      Grid.Row="0"
+                      Grid.Column="0"
+                      Grid.RowSpan="2"
+                  ItemsSource="{Binding listadoDePersonasBusqueda}"
+                  SelectedItem="{Binding personaSeleccionada, Mode=TwoWay}"
+                  RelativePanel.AlignTopWithPanel="True"
+                  RelativePanel.AlignLeftWithPanel="True"
+                  MinWidth="150"
+                  Background="AliceBlue"
+                      ScrollViewer.IsVerticalRailEnabled="True"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.VerticalScrollMode="Auto"
+                      RightTapped="lsvListaBusqueda_RightTapped" Visibility="{Binding Path=listadoDePersonasBusquedaVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  >
+
+
+
+                <!--https://www.c-sharpcorner.com/article/how-to-create-context-menu-using-list-view-and-manuflyout-controls-in-universal/-->
+                <ListView.Resources>
+                    <MenuFlyout x:Name="miFlyoutListado2">
+                        <MenuFlyout.Items>
+                            <MenuFlyoutItem Text="Guardar" Command="{Binding Path=guardarPersonaCommand}" Icon="Save"/>
+                            <MenuFlyoutItem Text="Borrar" Command="{Binding Path=eliminarCommand}" Icon="Delete"/>
+                        </MenuFlyout.Items>
+                    </MenuFlyout>
+                </ListView.Resources>
+
+                <!--https://codedocu.com/Details?d=1536&a=9&f=191&l=0&v=d-->
+                <!--https://www.reddit.com/r/csharp/comments/3a34xi/beginner_question_how_to_implement_a_context_menu/-->
+
+
+                <!--RelativePanel.AlignBottomWithPanel="True"-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=apellidos}"/>
+                            <TextBlock Text=","/>
+                            <TextBlock Text="{Binding Path=nombre}" Margin="5,0,0,0"/>
+
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
 
             <!--grid-->
             <Grid
