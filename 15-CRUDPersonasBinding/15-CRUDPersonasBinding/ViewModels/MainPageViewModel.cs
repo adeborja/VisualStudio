@@ -29,8 +29,8 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
         private String _textoBusqueda;
         private DelegateCommand _rellenarListadoBusquedaCommand;
 
-        private String _listadoDePersonasVisible;
-        private String _listadoDePersonasBusquedaVisible;
+        //private String _listadoDePersonasVisible;
+        //private String _listadoDePersonasBusquedaVisible;
 
         //public event PropertyChangedEventHandler PropertyChanged;
 
@@ -209,6 +209,8 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
             //Cargar el listado de personas
             _listadoDePersonas = listadoPersonas.listadoCompletoPersonas_BL();
             NotifyPropertyChanged("listadoDePersonas"); //propiedad en linea 30
+
+            //myAppBarButton.ClearValue(AppBarButton.IsEnabledProperty) para limpiar el estado de las appbarbutton, pero tiene que se en OnNavigatedTo()
         }
 
         #endregion
@@ -376,7 +378,7 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
 
         #endregion
 
-        public String listadoDePersonasVisible
+        /*public String listadoDePersonasVisible
         {
             get
             {
@@ -388,9 +390,9 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
                 _listadoDePersonasVisible = value;
                 NotifyPropertyChanged("listadoDePersonasVisible");
             }
-        }
+        }*/
 
-        public String listadoDePersonasBusquedaVisible
+        /*public String listadoDePersonasBusquedaVisible
         {
             get
             {
@@ -402,7 +404,7 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
                 _listadoDePersonasBusquedaVisible = value;
                 NotifyPropertyChanged("listadoDePersonasBusquedaVisible");
             }
-        }
+        }*/
 
 
 
@@ -439,12 +441,18 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
 
             _listadoDepartamentos = listadoDepartamentos.listadoCompletoPersonas_BL();
 
-            _listadoDePersonasBusquedaVisible = "Visible";
-            _listadoDePersonasVisible = "Collapsed";
+            //_listadoDePersonasBusquedaVisible = "Visible";
+            //_listadoDePersonasVisible = "Collapsed";
         }
 
         #endregion
 
-        
+
+        #region metodoRafaListaBusqueda
+
+
+
+        #endregion
+
     }
 }
