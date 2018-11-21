@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="a31811d8-3741-4fbf-8b0e-da9faaf0528d"
-    Publisher="CN=adeborja"
+    Name="901565f4-d622-439a-87b6-549a1232093e"
+    Publisher="CN=Angel David"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="a31811d8-3741-4fbf-8b0e-da9faaf0528d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="901565f4-d622-439a-87b6-549a1232093e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>16-ListaLoL</DisplayName>
-    <PublisherDisplayName>adeborja</PublisherDisplayName>
+    <DisplayName>16-ListaLoL-UI</DisplayName>
+    <PublisherDisplayName>Angel David</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="_16_ListaLoL.App">
+      EntryPoint="_16_ListaLoL_UI.App">
       <uap:VisualElements
-        DisplayName="16-ListaLoL"
+        DisplayName="16-ListaLoL-UI"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="16-ListaLoL"
+        Description="16-ListaLoL-UI"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

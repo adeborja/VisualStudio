@@ -1,0 +1,293 @@
+﻿<Page
+    x:Class="_16_ListaLoL_UI.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_16_ListaLoL_UI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    
+    xmlns:miViewModelLoL="using:_16_ListaLoL_UI.ViewModels"
+    >
+
+    <Page.DataContext>
+        <miViewModelLoL:miViewModelLoL/>
+    </Page.DataContext>
+    
+    <RelativePanel>
+
+        <ComboBox
+            Name="cbbListadoCategorias"
+            Width="150"
+            Margin="30,30,15,15"
+            ItemsSource="{Binding Path=listadoCompletoCategorias, Mode=TwoWay}"
+            DisplayMemberPath="nombreCategoria"
+            SelectedValuePath="idCategoria"
+            SelectedValue="{Binding Path=categoriaSeleccionada, Mode=TwoWay}"/>
+
+        <Button
+            Name="btnElegirCategoria"
+            Content="Elegir"
+            RelativePanel.RightOf="cbbListadoCategorias"
+            Margin="15,30,15,15"
+            Command="{Binding Path=buscarPersonajesPorCategoriaCommand}"
+            />
+
+        <ListView
+            Name="lsvCategorias"
+            ItemsSource="{Binding Path=listadoPersonajes, Mode=TwoWay}"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.Below="cbbListadoCategorias"
+            RelativePanel.AlignBottomWithPanel="True"
+            Width="200"
+            Margin="30,15,15,30"
+            SelectedItem="{Binding personajeSeleccionado, Mode=TwoWay}"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=nombre, Mode=TwoWay}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid
+            Name="grdAtributosPersonaje"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.Below="btnElegirCategoria"
+            RelativePanel.AlignBottomWithPanel="True"
+            RelativePanel.RightOf="lsvCategorias"
+            Margin="15,15,30,30"
+            Visibility="{Binding gridVisibilidad, Mode=TwoWay}"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image
+                Name="imgRetrato"
+                Grid.ColumnSpan="2"
+                Grid.RowSpan="4"
+                Grid.Row="0"
+                Grid.Column="0"
+                Source="{Binding imagenRetrato, Mode=TwoWay}"
+                Margin="10"
+                />
+
+            <TextBlock
+                Text="{Binding Path=personajeSeleccionado.nombre, Mode=TwoWay}"
+                Grid.Column="1"
+                Grid.Row="1"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                FontSize="35"
+                Grid.ColumnSpan="2"
+                />
+            
+            <TextBlock
+                Text="{Binding Path=personajeSeleccionado.alias, Mode=TwoWay}"
+                Grid.Column="1"
+                Grid.Row="2"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                FontSize="25"
+                Grid.ColumnSpan="2"
+                />
+            
+            
+            <TextBlock
+                Text="ID"
+                Grid.Column="3"
+                Grid.Row="0"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                FontSize="35"
+                />
+            
+            <TextBlock
+                Text="{Binding Path=personajeSeleccionado.idPersonaje, Mode=TwoWay}"
+                Grid.Column="3"
+                Grid.Row="1"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                FontSize="30"
+                />
+            
+            <TextBlock
+                Text="Categoria"
+                Grid.Column="3"
+                Grid.Row="2"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                FontSize="35"
+                />
+            
+            <TextBlock
+                Text="{Binding Path=personajeSeleccionado.idCategoria, Mode=TwoWay}"
+                Grid.Column="3"
+                Grid.Row="3"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                FontSize="30"
+                />
+
+
+            <TextBlock
+                Text="Vida"
+                Grid.Column="0"
+                Grid.Row="5"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                FontSize="35"
+                Margin="0,0,10,0"
+                />
+
+            <ProgressBar
+                Grid.Row="5"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Margin="10,0"
+                Minimum="400"
+                Maximum="700"
+                Value="{Binding personajeSeleccionado.vida, Mode=TwoWay}"
+                />
+            
+            <TextBlock
+                Text="Regeneracion"
+                Grid.Column="0"
+                Grid.Row="6"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                FontSize="35"
+                Margin="0,0,10,0"
+                />
+
+            <ProgressBar
+                Grid.Row="6"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Margin="10,0"
+                Minimum="4"
+                Maximum="10"
+                Value="{Binding personajeSeleccionado.regeneracion, Mode=TwoWay}"
+                />
+            
+            <TextBlock
+                Text="Daño"
+                Grid.Column="0"
+                Grid.Row="7"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                FontSize="35"
+                Margin="0,0,10,0"
+                />
+
+            <ProgressBar
+                Grid.Row="7"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Margin="10,0"
+                Minimum="35"
+                Maximum="70"
+                Value="{Binding personajeSeleccionado.danno, Mode=TwoWay}"
+                />
+            
+            <TextBlock
+                Text="Armadura"
+                Grid.Column="0"
+                Grid.Row="8"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                FontSize="35"
+                Margin="0,0,10,0"
+                />
+
+            <ProgressBar
+                Grid.Row="8"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Margin="10,0"
+                Minimum="15"
+                Maximum="27"
+                Value="{Binding personajeSeleccionado.armadura, Mode=TwoWay}"
+                />
+
+            <TextBlock
+                Text="Veloc. Ataque"
+                Grid.Column="2"
+                Grid.Row="5"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                FontSize="35"
+                Margin="0,0,10,0"
+                />
+
+            <ProgressBar
+                Grid.Row="5"
+                Grid.Column="3"
+                VerticalAlignment="Center"
+                Margin="10,0"
+                Minimum="0"
+                Maximum="1"
+                Value="{Binding personajeSeleccionado.velAtaque, Mode=TwoWay}"
+                />
+
+            <TextBlock
+                Text="Resistencia"
+                Grid.Column="2"
+                Grid.Row="6"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                FontSize="35"
+                Margin="0,0,10,0"
+                />
+
+            <ProgressBar
+                Grid.Row="6"
+                Grid.Column="3"
+                VerticalAlignment="Center"
+                Margin="10,0"
+                Minimum="29"
+                Maximum="33"
+                Value="{Binding personajeSeleccionado.resistencia, Mode=TwoWay}"
+                />
+
+            <TextBlock
+                Text="Veloc. Movim."
+                Grid.Column="2"
+                Grid.Row="7"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                FontSize="35"
+                Margin="0,0,10,0"
+                />
+
+            <ProgressBar
+                Grid.Row="7"
+                Grid.Column="3"
+                VerticalAlignment="Center"
+                Margin="10,0"
+                Minimum="320"
+                Maximum="350"
+                Value="{Binding personajeSeleccionado.velMovimiento, Mode=TwoWay}"
+                />
+
+        </Grid>
+        
+    </RelativePanel>
+</Page>
