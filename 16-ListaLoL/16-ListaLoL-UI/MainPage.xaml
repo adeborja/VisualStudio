@@ -24,7 +24,10 @@
             ItemsSource="{Binding Path=listadoCompletoCategorias, Mode=TwoWay}"
             DisplayMemberPath="nombreCategoria"
             SelectedValuePath="idCategoria"
-            SelectedValue="{Binding Path=categoriaSeleccionada, Mode=TwoWay}"/>
+            SelectedValue="{Binding Path=categoriaSeleccionada, Mode=TwoWay}"
+            BorderThickness="0,0,0,1"
+            
+            />
 
         <Button
             Name="btnElegirCategoria"

@@ -67,7 +67,11 @@
                         Icon="Refresh"
                         Command="{Binding Path=actualizarListadoCommand}"
                 Label="Actualizar Lista"
-                        />
+                        >
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Key="F5" Modifiers="None"/>
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
             <AppBarButton
                         Name="btnGuardar2"
                         Icon="Save"
