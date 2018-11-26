@@ -9,11 +9,18 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     
     xmlns:miViewModel="using:_15_CRUDPersonasBinding_UI.ViewModels"
+    xmlns:miConversor="using:_15_CRUDPersonasBinding.ViewModels.Converters"
     >
 
     <Page.DataContext>
         <miViewModel:MainPageViewModel/>
     </Page.DataContext>
+
+    <!--Añadir para el converter-->
+    <Page.Resources>
+        <miConversor:clsConversorFechas x:Key="conversorFecha"/>
+        <miConversor:clsConversorFechaDatePicker x:Key="conversorFechaDatePicker"/>
+    </Page.Resources>
     
     <!--menu flyout al hacer click derecho en objeto de lista-->
     <!--EN TIENDA DE WINDOWS:   XAML CONTROLS GALLERY-->
@@ -78,7 +85,7 @@
                         Command="{Binding Path=guardarPersonaCommand}"
                 Label="Guardar"
                         />
-            <!--<Button
+            <Button
                 VerticalAlignment="Center"
                 Content="Menu Flyout"
                 >
@@ -93,21 +100,23 @@
                         </MenuFlyoutSubItem>
                     </MenuFlyout>
                 </Button.Flyout>
-            </Button>-->
+            </Button>
 
             <TextBox
                 Name="txbBuscar"
                 PlaceholderText="Buscar"
                 Height="30"
                 Width="100"
+                Margin="40,0,0,0"
                 Text="{Binding Path=textoBusqueda, Mode=TwoWay}"
                 />
             <Button
                 Name="btnBuscar"
                 Height="{Binding ElementName=txbBuscar, Path=Height}"
                 HorizontalAlignment="Right"
-                Command="{Binding Path=guardarPersonaCommand, Mode=TwoWay}"
+                
                 >
+                <!--Command="{Binding Path=guardarPersonaCommand, Mode=TwoWay}"-->
                 <TextBlock
                     Text="&#xE71E;"
                     FontFamily="Segoe MDL2 Assets"/>
@@ -116,25 +125,7 @@
 
         </StackPanel>
 
-        <StackPanel
-            RelativePanel.Below="spBotones">
-            <Button
-                VerticalAlignment="Center"
-                Content="Menu Flyout"
-                >
-                <Button.Flyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem Text="Nuevo" Command="{Binding Path=anadirNuevoCommand}" Icon="Add"/>
-                        <MenuFlyoutItem Text="Actualizar" Command="{Binding Path=actualizarListadoCommand}" Icon="Refresh"/>
-                        <MenuFlyoutSeparator/>
-                        <MenuFlyoutSubItem Text="Acciones">
-                            <MenuFlyoutItem Text="Guardar" Command="{Binding Path=guardarPersonaCommand}" Icon="Save"/>
-                            <MenuFlyoutItem Text="Borrar" Command="{Binding Path=eliminarCommand}" Icon="Delete"/>
-                        </MenuFlyoutSubItem>
-                    </MenuFlyout>
-                </Button.Flyout>
-            </Button>
-        </StackPanel>
+        
         
         <Grid
             Margin="15"
@@ -358,20 +349,20 @@
                 <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
-                Text="{Binding Path=personaSeleccionada.fechaNacimiento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Text="{Binding Path=personaSeleccionada.fechaNacimiento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource conversorFecha}}"
                 FontSize="20"
                 VerticalAlignment="Bottom"
                 Margin="0,0,30,0"
                 />
 
                 <!-- Meter un datepicker para la fecha -->
-                <!--<DatePicker
+                <DatePicker
                     Grid.Row="2"
                     Grid.Column="1"
                     VerticalAlignment="Top"
-                    Date="{Binding Path=personaSeleccionada.fechaNacimiento, Mode=TwoWay}"
+                    Date="{Binding Path=personaSeleccionada.fechaNacimiento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource conversorFechaDatePicker}}"
                     
-                    />-->
+                    />
 
                 <TextBox
                 Grid.Row="3"

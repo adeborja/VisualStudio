@@ -1,0 +1,34 @@
+﻿<Application
+    x:Class="_17_BotonesDistintosEstilos.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_17_BotonesDistintosEstilos">
+
+    <Application.Resources>
+        
+
+        <ResourceDictionary>
+            
+            <!--Con diccionario-->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Diccionario_EstiloBoton.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <x:String x:Key="botonDicc">
+                Recurso en Diccionario
+            </x:String>
+
+            <!--In App-->
+            <LinearGradientBrush x:Key="GradientBrushBotonApp">
+                <GradientStop Offset="0" Color="Blue"/>
+                <GradientStop Offset="0.5" Color="White"/>
+                <GradientStop Offset="1" Color="Red"/>
+            </LinearGradientBrush>
+            <x:String x:Key="botonApp">
+                Recurso en Application
+            </x:String>
+        </ResourceDictionary>
+        
+        
+    </Application.Resources>
+
+</Application>

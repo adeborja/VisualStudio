@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="_17_BotonesDistintosEstilos.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_17_BotonesDistintosEstilos"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <LinearGradientBrush x:Key="GradientBrushBoton">
+            <GradientStop Offset="0" Color="Red"/>
+            <GradientStop Offset="0.5" Color="Yellow"/>
+            <GradientStop Offset="1" Color="Black"/>
+        </LinearGradientBrush>
+        <x:String x:Key="textoBoton">
+            Estilo en MainPage
+        </x:String>
+
+        <!--<ResourceDictionary x:Key="DiccBoton">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Diccionario_EstiloBoton.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>-->
+    </Page.Resources>
+    
+    <RelativePanel>
+
+        <Button
+            Name="btnMainPage"
+            Background="{StaticResource GradientBrushBoton}"
+            Margin="40"
+            Content="{StaticResource textoBoton}"/>
+
+        <Button
+            Name="btnApplication"
+            Background="{StaticResource GradientBrushBotonApp}"
+            Margin="40"
+            RelativePanel.RightOf="btnMainPage"
+            Content="{StaticResource botonApp}"/>
+
+        <Button
+            Name="btnDiccionario"
+            Background="{StaticResource GradientBrushBotonDicc}"
+            Margin="40"
+            RelativePanel.RightOf="btnApplication"
+            Content="{StaticResource botonDicc}"/>
+
+    </RelativePanel>
+</Page>
