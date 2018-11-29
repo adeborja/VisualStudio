@@ -220,6 +220,11 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
             //Cargar el listado de personas
             _listadoDePersonas = listadoPersonas.listadoCompletoPersonas_BL();
             NotifyPropertyChanged("listadoDePersonas"); //propiedad en linea 30
+            //_personaSeleccionada = null;
+
+            //Añadir por x:Bind
+            //_personaSeleccionada = new clsPersona();
+            //NotifyPropertyChanged("personaSeleccionada");
 
             //myAppBarButton.ClearValue(AppBarButton.IsEnabledProperty) para limpiar el estado de las appbarbutton, pero tiene que se en OnNavigatedTo()
         }
@@ -335,6 +340,9 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
         private void anadirNuevoCommand_Execute()
         {
             personaSeleccionada = new clsPersona();
+
+            //Porque peta con x:bind
+            NotifyPropertyChanged("personaSeleccionada");
         }
 
         #endregion

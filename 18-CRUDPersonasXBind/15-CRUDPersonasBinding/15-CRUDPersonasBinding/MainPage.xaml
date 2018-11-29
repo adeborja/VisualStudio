@@ -12,9 +12,9 @@
     xmlns:miConversor="using:_15_CRUDPersonasBinding.ViewModels.Converters"
     >
 
-    <Page.DataContext>
+    <!--<Page.DataContext>
         <miViewModel:MainPageViewModel/>
-    </Page.DataContext>
+    </Page.DataContext>-->
 
     <!--Añadir para el converter-->
     <Page.Resources>
@@ -149,7 +149,7 @@
                       Grid.Column="0"
                       Grid.RowSpan="2"
                   ItemsSource="{x:Bind VM.listadoDePersonas, Mode=TwoWay}"
-                  SelectedItem="{x:Bind Path=VM.personaSeleccionada, Mode=TwoWay, Converter={StaticResource conversorPersonaVM}}"
+                  SelectedItem="{x:Bind Path=VM.personaSeleccionada, Mode=TwoWay, Converter={StaticResource conversorPersonaVM}, UpdateSourceTrigger=PropertyChanged}"
                   RelativePanel.AlignTopWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True"
                   MinWidth="150"

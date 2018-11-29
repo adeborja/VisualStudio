@@ -12,6 +12,13 @@ namespace _15_CRUDPersonasBinding.ViewModels.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             DateTime fecha = (DateTime)value;
+
+            //Para evitar que pete por tener el año como 1
+            if (fecha.Year < 1900)
+            {
+                fecha = new DateTime(1900, fecha.Month, fecha.Day);
+            }
+
             DateTimeOffset fechaDevuelta = new DateTimeOffset(fecha);
 
             return fechaDevuelta;

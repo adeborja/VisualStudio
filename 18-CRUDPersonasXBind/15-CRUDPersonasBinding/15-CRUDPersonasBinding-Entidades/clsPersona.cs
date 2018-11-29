@@ -10,7 +10,13 @@ namespace _15_CRUDPersonasBinding_Entidades
 
         public clsPersona()
         {
-            
+            /*this.idPersona = 0;
+            this.nombre = "";
+            this.apellidos = "";
+            this.fechaNacimiento = new DateTime();
+            this.direccion = "";
+            this.telefono = "";*/
+            this.idDepartamento = 1;
         }
 
         #endregion

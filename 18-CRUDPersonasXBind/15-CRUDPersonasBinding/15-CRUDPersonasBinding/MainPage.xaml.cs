@@ -43,9 +43,9 @@ namespace _15_CRUDPersonasBinding_UI
             this.lsvLista.SelectedItem = personaSeleccionada;
         }
 
-        private void lsvListaBusqueda_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        /*private void lsvListaBusqueda_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
 
-        }
+        }*/
     }
 }
