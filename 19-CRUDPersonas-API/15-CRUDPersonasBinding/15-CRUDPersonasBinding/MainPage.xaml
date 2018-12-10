@@ -1,0 +1,407 @@
+﻿<Page
+    x:Class="_15_CRUDPersonasBinding_UI.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_15_CRUDPersonasBinding_UI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    
+    xmlns:miViewModel="using:_15_CRUDPersonasBinding_UI.ViewModels"
+    xmlns:miConversor="using:_15_CRUDPersonasBinding.ViewModels.Converters"
+    >
+
+    <Page.DataContext>
+        <miViewModel:MainPageViewModel/>
+    </Page.DataContext>
+
+    <!--Añadir para el converter-->
+    <Page.Resources>
+        <miConversor:clsConversorFechas x:Key="conversorFecha"/>
+        <miConversor:clsConversorFechaDatePicker x:Key="conversorFechaDatePicker"/>
+    </Page.Resources>
+    
+    <!--menu flyout al hacer click derecho en objeto de lista-->
+    <!--EN TIENDA DE WINDOWS:   XAML CONTROLS GALLERY-->
+    <!--<Page.Resources>
+        <muxcontrols:CommandBarFlyout Placement="Right" x:Name="CommandBarFlyout1"  Closed="OnClosed">
+            <AppBarButton x:Name="ShareButton1" Label="Share" Icon="Share" Click="OnElementClicked" />
+            <AppBarButton x:Name="SaveButton1" Label="Save" Icon="Save" Click="OnElementClicked" />
+            <AppBarButton x:Name="DeleteButton1" Label="Delete" Icon="Delete" Click="OnElementClicked" />
+            <muxcontrols:CommandBarFlyout.SecondaryCommands>
+                <AppBarButton x:Name="ResizeButton1" Label="Resize" Click="OnElementClicked" />
+                <AppBarButton x:Name="MoveButton1" Label="Move" Click="OnElementClicked" />
+            </muxcontrols:CommandBarFlyout.SecondaryCommands>
+        </muxcontrols:CommandBarFlyout>
+    </Page.Resources>-->
+
+    
+    <!--Añadir visibility a los campos de la parte derecha para que no se vean cuando no hay una persona seleccionada-->
+    <!--En el viewmodel, meter un string que controle la visibilidad de los elementos y que cambie dentro de personaSeleccionada, asignando valor al atributo privado y notificando el cambio-->
+
+    <RelativePanel>
+        <!--ponemos twoway para que la propiedad personaSeleccionada del viewmodel se actualice-->
+
+        <!--https://docs.microsoft.com/es-es/windows/uwp/design/controls-and-patterns/menus-->
+        <!--<MenuBar>
+        
+        </MenuBar>-->
+
+        <StackPanel
+            Name="spBotones"
+            Orientation="Horizontal"
+            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            VerticalAlignment="Center"
+            Background="AntiqueWhite"
+            >
+            <AppBarButton
+                        Name="btnAdd"
+                        Icon="Add"
+                Command="{Binding Path=anadirNuevoCommand}"
+                Label="Añadir Nuevo"
+                        />
+            <AppBarButton 
+                        Name="btnDelete"
+                        Icon="Delete"
+                        Command="{Binding Path=eliminarCommand}"
+                Label="Borrar"
+                        />
+            <AppBarButton
+                        Name="btnActualizarListado"
+                        Icon="Refresh"
+                        Command="{Binding Path=actualizarListadoCommand}"
+                Label="Actualizar Lista"
+                        >
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Key="F5" Modifiers="None"/>
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
+            <AppBarButton
+                        Name="btnGuardar2"
+                        Icon="Save"
+                        Command="{Binding Path=guardarPersonaCommand}"
+                Label="Guardar"
+                        />
+            <Button
+                VerticalAlignment="Center"
+                Content="Menu Flyout"
+                >
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Nuevo" Command="{Binding Path=anadirNuevoCommand}" Icon="Add"/>
+                        <MenuFlyoutItem Text="Actualizar" Command="{Binding Path=actualizarListadoCommand}" Icon="Refresh"/>
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutSubItem Text="Acciones">
+                            <MenuFlyoutItem Text="Guardar" Command="{Binding Path=guardarPersonaCommand}" Icon="Save"/>
+                            <MenuFlyoutItem Text="Borrar" Command="{Binding Path=eliminarCommand}" Icon="Delete"/>
+                        </MenuFlyoutSubItem>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+
+            <TextBox
+                Name="txbBuscar"
+                PlaceholderText="Buscar"
+                Height="30"
+                Width="100"
+                Margin="40,0,0,0"
+                Text="{Binding Path=textoBusqueda, Mode=TwoWay}"
+                />
+            <Button
+                Name="btnBuscar"
+                Height="{Binding ElementName=txbBuscar, Path=Height}"
+                HorizontalAlignment="Right"
+                
+                >
+                <!--Command="{Binding Path=guardarPersonaCommand, Mode=TwoWay}"-->
+                <TextBlock
+                    Text="&#xE71E;"
+                    FontFamily="Segoe MDL2 Assets"/>
+            </Button>
+            
+
+        </StackPanel>
+
+        
+        
+        <Grid
+            Margin="15"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.Below="spBotones"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignBottomWithPanel="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="{Binding ElementName=rpnBotones, Path=Width, Mode=TwoWay}"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--listview listadoDePersonas-->
+            <ListView Name="lsvLista" 
+                      Grid.Row="0"
+                      Grid.Column="0"
+                      Grid.RowSpan="2"
+                  ItemsSource="{Binding listadoDePersonas}"
+                  SelectedItem="{Binding personaSeleccionada, Mode=TwoWay}"
+                  RelativePanel.AlignTopWithPanel="True"
+                  RelativePanel.AlignLeftWithPanel="True"
+                  MinWidth="150"
+                  Background="AliceBlue"
+                      ScrollViewer.IsVerticalRailEnabled="True"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.VerticalScrollMode="Auto"
+                      RightTapped="lsvLista_RightTapped" Visibility="{Binding Path=listadoDePersonasVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  >
+
+                
+
+                <!--https://www.c-sharpcorner.com/article/how-to-create-context-menu-using-list-view-and-manuflyout-controls-in-universal/-->
+                <ListView.Resources>
+                    <MenuFlyout x:Name="miFlyoutListado">
+                        <MenuFlyout.Items>
+                            <MenuFlyoutItem Text="Guardar" Command="{Binding Path=guardarPersonaCommand}" Icon="Save"/>
+                            <MenuFlyoutItem Text="Borrar" Command="{Binding Path=eliminarCommand}" Icon="Delete"/>
+                        </MenuFlyout.Items>
+                    </MenuFlyout>
+                </ListView.Resources>
+
+                <!--https://codedocu.com/Details?d=1536&a=9&f=191&l=0&v=d-->
+                <!--https://www.reddit.com/r/csharp/comments/3a34xi/beginner_question_how_to_implement_a_context_menu/-->
+
+
+                <!--RelativePanel.AlignBottomWithPanel="True"-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=apellidos}"/>
+                            <TextBlock Text=","/>
+                            <TextBlock Text="{Binding Path=nombre}" Margin="5,0,0,0"/>
+                            
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+            <!--https://stackoverflow.com/questions/18138875/linq-expression-to-filter-an-a-list-of-entitys-collection-and-maintain-list-of-->
+            <!--listview listadoDePersonasBusqueda-->
+            <!--<ListView Name="lsvListaBusqueda" 
+                      Grid.Row="0"
+                      Grid.Column="0"
+                      Grid.RowSpan="2"
+                  ItemsSource="{Binding listadoDePersonasBusqueda}"
+                  SelectedItem="{Binding personaSeleccionada, Mode=TwoWay}"
+                  RelativePanel.AlignTopWithPanel="True"
+                  RelativePanel.AlignLeftWithPanel="True"
+                  MinWidth="150"
+                  Background="AliceBlue"
+                      ScrollViewer.IsVerticalRailEnabled="True"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.VerticalScrollMode="Auto"
+                      RightTapped="lsvListaBusqueda_RightTapped" Visibility="{Binding Path=listadoDePersonasBusquedaVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  >
+
+
+
+                --><!--https://www.c-sharpcorner.com/article/how-to-create-context-menu-using-list-view-and-manuflyout-controls-in-universal/--><!--
+                <ListView.Resources>
+                    <MenuFlyout x:Name="miFlyoutListado2">
+                        <MenuFlyout.Items>
+                            <MenuFlyoutItem Text="Guardar" Command="{Binding Path=guardarPersonaCommand}" Icon="Save"/>
+                            <MenuFlyoutItem Text="Borrar" Command="{Binding Path=eliminarCommand}" Icon="Delete"/>
+                        </MenuFlyout.Items>
+                    </MenuFlyout>
+                </ListView.Resources>
+
+                --><!--https://codedocu.com/Details?d=1536&a=9&f=191&l=0&v=d-->
+                <!--https://www.reddit.com/r/csharp/comments/3a34xi/beginner_question_how_to_implement_a_context_menu/-->
+
+
+                <!--RelativePanel.AlignBottomWithPanel="True"--><!--
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=apellidos}"/>
+                            <TextBlock Text=","/>
+                            <TextBlock Text="{Binding Path=nombre}" Margin="5,0,0,0"/>
+
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+
+
+
+
+            <!--grid-->
+            <Grid
+                Grid.Row="0"
+                Grid.Column="1"
+                Grid.RowSpan="2"
+                Name="grdCampos"
+                RelativePanel.RightOf="lsvLista"
+                RelativePanel.AlignTopWithPanel="True"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--#region nombres de campo-->
+                <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Nombre:"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                    Margin="15,0,0,0"
+                />
+
+                <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Apellidos:"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                    Margin="15,0,0,0"
+                />
+
+                <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Fecha de Nacimiento:"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                TextWrapping="Wrap"
+                    Margin="15,0,0,0"
+                />
+
+                <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Direccion:"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                    Margin="15,0,0,0"
+                />
+
+                <TextBlock
+                Grid.Row="4"
+                Grid.Column="0"
+                Text="Telefono:"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                    Margin="15,0,0,0"
+                />
+
+                <TextBlock
+                Grid.Row="5"
+                Grid.Column="0"
+                Text="Departamento:"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                TextWrapping="Wrap"
+                    Margin="15,0,0,0"
+                />
+                <!--#endregion-->
+
+                <!--#region cajas para introducir datos-->
+
+                <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{Binding Path=personaSeleccionada.nombre, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                Margin="0,0,30,0"
+                />
+
+
+                <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="{Binding Path=personaSeleccionada.apellidos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                Margin="0,0,30,0"
+                />
+
+
+                <TextBox
+                Grid.Row="2"
+                Grid.Column="1"
+                Text="{Binding Path=personaSeleccionada.fechaNacimiento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource conversorFecha}}"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                Margin="0,0,30,0"
+                />
+
+                <!-- Meter un datepicker para la fecha -->
+                <DatePicker
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    VerticalAlignment="Top"
+                    Date="{Binding Path=personaSeleccionada.fechaNacimiento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource conversorFechaDatePicker}}"
+                    
+                    />
+
+                <TextBox
+                Grid.Row="3"
+                Grid.Column="1"
+                Text="{Binding Path=personaSeleccionada.direccion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                Margin="0,0,30,0"
+                />
+
+
+                <TextBox
+                Grid.Row="4"
+                Grid.Column="1"
+                Text="{Binding Path=personaSeleccionada.telefono, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                FontSize="20"
+                VerticalAlignment="Bottom"
+                Margin="0,0,30,0"
+                />
+
+
+                <!--#endregion-->
+
+                <!--https://www.codeproject.com/Articles/301678/Step-by-Step-WPF-Data-Binding-with-Comboboxes-->
+                <ComboBox
+                Name="cbxNombreDepartamento"
+                Grid.Row="5"
+                Grid.Column="1"
+                VerticalAlignment="Bottom"
+                ItemsSource="{Binding listadoDepartamentos}"
+                DisplayMemberPath="nombreDepartamento"
+                SelectedValuePath="idDepartamento"
+                SelectedValue="{Binding personaSeleccionada.idDepartamento, Mode=TwoWay}"
+                />
+
+                
+            </Grid>
+
+        </Grid>
+
+    </RelativePanel>
+</Page>
