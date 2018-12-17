@@ -210,6 +210,8 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
             _listadoDePersonas = await listadoPersonas.listadoCompletoPersonas_BL();
             NotifyPropertyChanged("listadoDePersonas"); //propiedad en linea 30
 
+            actualizarListadoDepartamentos();
+
             //myAppBarButton.ClearValue(AppBarButton.IsEnabledProperty) para limpiar el estado de las appbarbutton, pero tiene que se en OnNavigatedTo()
         }
 
@@ -439,7 +441,9 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
             //_listadoDePersonas = listadoPersonas.listadoCompletoPersonas_BL();
             actualizarListadoCommand_Executed();
 
-            //_listadoDepartamentos = listadoDepartamentos.listadoCompletoPersonas_BL();
+            //_listadoDepartamentos = await listadoDepartamentos.listadoCompletoDepartamentos_BL();
+            //NotifyPropertyChanged("listadoDepartamentos");
+            actualizarListadoDepartamentos();
 
             //_listadoDePersonasBusquedaVisible = "Visible";
             //_listadoDePersonasVisible = "Collapsed";
@@ -447,12 +451,18 @@ namespace _15_CRUDPersonasBinding_UI.ViewModels
 
         #endregion
 
+        private async void actualizarListadoDepartamentos()
+        {
+            //Actualizamos la lista de personas
+            clsListadoDepartamentos_BL listadoDepartamentos_BL = new clsListadoDepartamentos_BL();
 
-        #region metodoRafaListaBusqueda
+            //Cargar el listado de personas
+            _listadoDepartamentos = await listadoDepartamentos_BL.listadoCompletoDepartamentos_BL();
+            NotifyPropertyChanged("listadoDepartamentos"); //propiedad en linea 30
 
+            //myAppBarButton.ClearValue(AppBarButton.IsEnabledProperty) para limpiar el estado de las appbarbutton, pero tiene que se en OnNavigatedTo()
+        }
 
-
-        #endregion
 
     }
 }

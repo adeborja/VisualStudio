@@ -6,12 +6,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using _15_CRUDPersonasBinding_DAL.Conexion;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace _15_CRUDPersonasBinding_DAL.Listados
 {
     public class clsListadoDepartamentos_DAL
     {
-        public List<clsDepartamento> listadoCompletoDepartamentos_DAL()
+        public async Task<List<clsDepartamento>> listadoCompletoDepartamentos_DAL()
+        {
+            List<clsDepartamento> lista = new List<clsDepartamento>();
+
+            HttpClient client = new HttpClient();
+            clsUriBase uriBase = new clsUriBase();
+            String uri = uriBase.getUriBase() + "personas";
+            Uri miUri = new Uri(uri);
+            clsPersona persona = new clsPersona();
+
+            String jsonText;
+
+            HttpResponseMessage respuesta = await client.GetAsync(miUri);
+
+            jsonText = await respuesta.Content.ReadAsStringAsync();
+
+            lista = JsonConvert.DeserializeObject<List<clsDepartamento>>(jsonText);
+
+
+            return lista;
+        }
+
+        /*public List<clsDepartamento> listadoCompletoDepartamentos_DAL()
         {
             List<clsDepartamento> lista = new List<clsDepartamento>();
 
@@ -65,6 +89,6 @@ namespace _15_CRUDPersonasBinding_DAL.Listados
 
 
             return lista;
-        }
+        }*/
     }
 }

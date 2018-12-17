@@ -10,14 +10,14 @@ namespace _15_CRUDPersonasBinding_BL.Listados
 {
     public class clsListadoDepartamentos_BL
     {
-        public List<clsDepartamento> listadoCompletoPersonas_BL()
+        public async Task<List<clsDepartamento>> listadoCompletoDepartamentos_BL()
         {
             List<clsDepartamento> lista = new List<clsDepartamento>();
 
             //instanciar un objeto
             clsListadoDepartamentos_DAL objeto = new clsListadoDepartamentos_DAL();
 
-            lista = objeto.listadoCompletoDepartamentos_DAL();
+            lista = await objeto.listadoCompletoDepartamentos_DAL();
 
             return lista;
         }
