@@ -36,7 +36,11 @@
         </ListView>
         <RelativePanel x:Name="rp" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
             <TextBox x:Name="text" RelativePanel.AlignLeftWithPanel="True" RelativePanel.LeftOf="send" ></TextBox>
-            <Button x:Name="send" RelativePanel.AlignRightWithPanel="True" Content="Send" Click="send_Click"></Button>
+            <Button x:Name="send" RelativePanel.AlignRightWithPanel="True" Content="Send" Click="send_Click">
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Key="Enter" Modifiers="None"/>
+                </Button.KeyboardAccelerators>
+            </Button>
         </RelativePanel>
     </RelativePanel>
 </Page>

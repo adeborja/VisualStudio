@@ -30,7 +30,12 @@ namespace miChatSignalR
 
         private void send_Click(object sender, RoutedEventArgs e)
         {
-            (Application.Current as App).Broadcast(new ChatMessage { Username = name.Text, Message = text.Text });
+            if(text.Text!="")
+            {
+                (Application.Current as App).Broadcast(new ChatMessage { Username = name.Text, Message = text.Text });
+                text.Text = "";
+            }
+            
         }
     }
 }
