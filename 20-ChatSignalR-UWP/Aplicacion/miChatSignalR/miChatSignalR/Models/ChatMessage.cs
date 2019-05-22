@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace miChatSignalR
+namespace miChatSignalR.Models
 {
     public class ChatMessage
     {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using miChatSignalR.Models;
+using miChatSignalR.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,20 +24,24 @@ namespace miChatSignalR
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private ChatMessageViewModel _vm;
+
         public MainPage()
         {
             this.InitializeComponent();
-            this.DataContext = (Application.Current as App).ChatVM;
+            //this.DataContext = (Application.Current as App).ChatVM;
+            _vm = (ChatMessageViewModel)this.DataContext;
         }
 
         private void send_Click(object sender, RoutedEventArgs e)
         {
-            if(text.Text!="")
+            if (text.Text != "")
             {
-                (Application.Current as App).Broadcast(new ChatMessage { Username = name.Text, Message = text.Text });
+                //(Application.Current as App).Broadcast(new ChatMessage { Username = name.Text, Message = text.Text });
+                _vm.Broadcast(new ChatMessage { Username = name.Text, Message = text.Text });
                 text.Text = "";
             }
-            
+
         }
     }
 }

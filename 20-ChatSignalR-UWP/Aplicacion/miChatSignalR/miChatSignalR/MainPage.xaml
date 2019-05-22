@@ -8,20 +8,21 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     
-    
+    xmlns:vm="using:miChatSignalR.ViewModels"
+    xmlns:model="using:miChatSignalR.Models"
     >
     <!--xmlns:CMVM="using:miChatSignalR.ViewModels"-->
 
-    <!--<Page.DataContext>
-        <CMVM:ChatMessageViewModel/>
-    </Page.DataContext>-->
+    <Page.DataContext>
+        <vm:ChatMessageViewModel/>
+    </Page.DataContext>
     
 
     <RelativePanel>
         <TextBox x:Name="name" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True"></TextBox>
         <ListView x:Name="lv" ItemsSource="{Binding Messages}" RelativePanel.Above="rp" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="name">
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="local:ChatMessage">
+                <DataTemplate x:DataType="model:ChatMessage">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock>
                         <Run Text="{x:Bind Username}"></Run>

@@ -25,9 +25,9 @@ namespace miChatSignalR
     public sealed partial class App : Application
     {
 
-        public ChatMessageViewModel ChatVM { get; set; } = new ChatMessageViewModel();
-        public HubConnection conn { get; set; }
-        public IHubProxy proxy { get; set; }
+        //public ChatMessageViewModel ChatVM { get; set; } = new ChatMessageViewModel();
+        //public HubConnection conn { get; set; }
+        //public IHubProxy proxy { get; set; }
 
         /// <summary>
         /// Inicializa el objeto de aplicación Singleton. Esta es la primera línea de código creado
@@ -38,33 +38,33 @@ namespace miChatSignalR
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
-            SignalR();
+            //SignalR();
         }
 
 
         #region SignalR methods
 
-        public void SignalR()
-        {
-            conn = new HubConnection("https://michatsignalr.azurewebsites.net");
-            proxy = conn.CreateHubProxy("ChatHub");
-            conn.Start();
+        //public void SignalR()
+        //{
+        //    conn = new HubConnection("https://michatsignalr.azurewebsites.net");
+        //    proxy = conn.CreateHubProxy("ChatHub");
+        //    conn.Start();
 
-            proxy.On<ChatMessage>("broadcastMessage", OnMessage);
-        }
+        //    proxy.On<ChatMessage>("broadcastMessage", OnMessage);
+        //}
 
-        public void Broadcast(ChatMessage msg)
-        {
-            proxy.Invoke("Send", msg);
-        }
+        //public void Broadcast(ChatMessage msg)
+        //{
+        //    proxy.Invoke("Send", msg);
+        //}
 
-        public async void OnMessage(ChatMessage msg)
-        {
-            await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-            {
-                ChatVM.Messages.Add(msg);
-            });
-        }
+        //public async void OnMessage(ChatMessage msg)
+        //{
+        //    await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+        //    {
+        //        ChatVM.Messages.Add(msg);
+        //    });
+        //}
 
 
         #endregion
