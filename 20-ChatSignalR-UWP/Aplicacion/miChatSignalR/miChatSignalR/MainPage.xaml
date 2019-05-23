@@ -19,8 +19,18 @@
     
 
     <RelativePanel>
-        <TextBox x:Name="name" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True"></TextBox>
-        <ListView x:Name="lv" ItemsSource="{Binding Messages}" RelativePanel.Above="rp" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="name">
+        <TextBox 
+            x:Name="name" 
+            RelativePanel.AlignRightWithPanel="True" 
+            RelativePanel.AlignLeftWithPanel="True" 
+            RelativePanel.AlignTopWithPanel="True"></TextBox>
+        <ListView 
+            x:Name="lv" 
+            ItemsSource="{Binding Messages}" 
+            RelativePanel.Above="rp" 
+            RelativePanel.AlignLeftWithPanel="True" 
+            RelativePanel.AlignRightWithPanel="True" 
+            RelativePanel.Below="name">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:ChatMessage">
                     <StackPanel Orientation="Horizontal">
@@ -35,12 +45,27 @@
 
             </ListView.ItemTemplate>
         </ListView>
-        <RelativePanel x:Name="rp" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
-            <TextBox x:Name="text" RelativePanel.AlignLeftWithPanel="True" RelativePanel.LeftOf="send" ></TextBox>
-            <Button x:Name="send" RelativePanel.AlignRightWithPanel="True" Content="Send" Click="send_Click">
-                <Button.KeyboardAccelerators>
+        <RelativePanel 
+            x:Name="rp" 
+            RelativePanel.AlignBottomWithPanel="True" 
+            RelativePanel.AlignLeftWithPanel="True" 
+            RelativePanel.AlignRightWithPanel="True">
+            <TextBox 
+                x:Name="text" 
+                RelativePanel.AlignLeftWithPanel="True" 
+                RelativePanel.LeftOf="send" >
+                <TextBox.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="None" Key="Enter" Invoked="KeyboardAccelerator_Invoked"/>
+                </TextBox.KeyboardAccelerators>
+            </TextBox>
+            <Button 
+                x:Name="send" 
+                RelativePanel.AlignRightWithPanel="True" 
+                Content="Send" 
+                Click="send_Click">
+                <!--<Button.KeyboardAccelerators>
                     <KeyboardAccelerator Key="Enter" Modifiers="None"/>
-                </Button.KeyboardAccelerators>
+                </Button.KeyboardAccelerators>-->
             </Button>
         </RelativePanel>
     </RelativePanel>

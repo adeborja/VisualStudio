@@ -38,10 +38,23 @@ namespace miChatSignalR
             if (text.Text != "")
             {
                 //(Application.Current as App).Broadcast(new ChatMessage { Username = name.Text, Message = text.Text });
-                _vm.Broadcast(new ChatMessage { Username = name.Text, Message = text.Text });
+                //_vm.Broadcast(new ChatMessage { Username = name.Text, Message = text.Text });
+
+                mandarMensaje(name.Text, text.Text);
                 text.Text = "";
             }
 
+        }
+
+        private void KeyboardAccelerator_Invoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            mandarMensaje(name.Text, text.Text);
+            text.Text = "";
+        }
+
+        private void mandarMensaje(string nombre, string mensaje)
+        {
+            _vm.Broadcast(new ChatMessage { Username = nombre, Message = mensaje });
         }
     }
 }
