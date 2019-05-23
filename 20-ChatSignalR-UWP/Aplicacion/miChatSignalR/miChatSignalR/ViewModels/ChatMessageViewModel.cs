@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace miChatSignalR.ViewModels
 {
@@ -60,11 +61,44 @@ namespace miChatSignalR.ViewModels
 
         public void SignalR()
         {
-            _conn = new HubConnection("https://michatsignalr.azurewebsites.net");
+            //_conn = new HubConnection("https://michatsignalr.azurewebsites.net");
+            _conn = new HubConnection("http://localhost:58455/");
             _proxy = _conn.CreateHubProxy("ChatHub");
             _conn.Start();
 
+            mostrarConexion(_conn);
+
             _proxy.On<ChatMessage>("broadcastMessage", OnMessage);
+
+            _proxy.On("pintarCuadro", aux);
+        }
+
+        public async void aux()
+        {
+            /*ContentDialog dialog = new ContentDialog();
+            dialog.Content = "Un cuadrito";
+            dialog.PrimaryButtonText = "Chupi";
+
+            await dialog.ShowAsync();*/
+
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+            {
+                ContentDialog dialog = new ContentDialog();
+                dialog.Content = "Un cuadrito";
+                dialog.PrimaryButtonText = "Chupi";
+
+                await dialog.ShowAsync();
+            });
+
+        }
+
+        public async void mostrarConexion(HubConnection con)//bool estaConectado)
+        {
+            ContentDialog dialog = new ContentDialog();
+            dialog.Content = "Conexion: "+con.State.ToString();
+            dialog.PrimaryButtonText = "Chupi";
+
+            await dialog.ShowAsync();
         }
 
         public void Broadcast(ChatMessage msg)

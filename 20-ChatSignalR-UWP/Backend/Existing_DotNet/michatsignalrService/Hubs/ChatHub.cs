@@ -12,6 +12,8 @@ namespace michatsignalrService.Hubs
         public void Send(ChatMessage message)
         {
             Clients.All.broadcastMessage(message);
+
+            Clients.All.pintarCuadro();
         }
     }
 }
